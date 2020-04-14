@@ -8,8 +8,40 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <header>
+    <div class="headers">
+      <div class="container">
+        <div class="row">
+          <h1 class="col-md-8">gibook</h1>
+          <nav class="col-md-9">
+            <ul>
+              <li>
+                <%= link_to "sign up", '#' %>
+              </li>
+              <li>
+                <%= link_to "log in", '#' %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <body>
+    
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    
     <%= yield %>
+    
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+    
   </body>
 </html>
