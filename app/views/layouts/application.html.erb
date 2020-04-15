@@ -10,42 +10,42 @@
   </head>
   
  
- <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-    <div class="container">
-      <div class="row">
-        <h1 class="navbar-brand">gibook</h1>
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li>
-              <%= link_to "Mypage", '#' %>
-            </li>
-            <li>
-              <%= link_to "投稿", '#' %>
-            </li>
-            <li>
-              <%= link_to "検索", '#' %>
-            </li>
-            <li>
-              <%= link_to "ログアウト", logout_path, method: :delete %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "sign up", new_user_path %>
-            </li>
-            <li>
-              <%= link_to "log in", login_path %>
-            </li>
-          <% end %>
-        </ul>
-    </div>
-  </nav>
-  
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-  <% end %>
 
   <body>
     
+   <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
+        <div class="row">
+          <h1 class="navbar-brand">gibook</h1>
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li>
+                <%= link_to "Mypage", '#' %>
+              </li>
+              <li>
+                <%= link_to "投稿", '#' %>
+              </li>
+              <li>
+                <%= link_to "検索", '#' %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", logout_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "sign up", new_user_path %>
+              </li>
+              <li>
+                <%= link_to "log in", login_path %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    </nav>
+    
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
     
     <%= yield %>
     

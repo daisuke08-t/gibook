@@ -1,0 +1,20 @@
+<% if logged_in? %>
+  <div class="topic-index-wrapper">
+    <div class="container">
+      <div class="row">
+        <h1>Time Line</h1>
+        <% @topics.each do |topic| %>
+          <div class="topic-index-container">
+            <h2><%= topic.title %></h2>
+            <h3><%= topic.user.name %></h3>
+            <p><%= topic.content %></p>
+            <%= link_to "コメント", '#' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <% flash.now[:danger] = "ログインしてください" %>
+  <% redirect_to login_path %>
+<% end %>
