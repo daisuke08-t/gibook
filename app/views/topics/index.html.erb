@@ -5,10 +5,18 @@
         <h1>Time Line</h1>
         <% @topics.each do |topic| %>
           <div class="topic-index-container">
-            <h2><%= topic.title %></h2>
             <h3><%= topic.user.name %></h3>
+            <h2><%= topic.title %></h2>
             <p><%= topic.content %></p>
             <%= link_to "コメント", '#' %>
+            
+            <% if !topic.favorite_users.include?(current_user) %>
+              <%= link_to "Like！", favorites_path(topic_id: topic.id), method: :post %>
+            <% elsif topic.favorite_users.include?(current_user) %>
+              <%= link_to "Un Like!", favorites_delete_path(topic_id: topic.id), method: :delete %>
+            <% end %>
+            
+            <%= link_to "削除", topic_path(id: topic.id), method: :delete %>
           </div>
         <% end %>
       </div>

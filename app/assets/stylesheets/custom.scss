@@ -1,3 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.yield-wrapper {
+  margin-top: 100px;
+}
+
 .alert {
   margin-bottom: 0px;
   position: fixed;

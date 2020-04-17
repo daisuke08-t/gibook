@@ -19,6 +19,12 @@ class TopicsController < ApplicationController
     end
   end
   
+  def destroy
+    topic = Topic.find_by(params[:id])
+  
+    topic.destroy
+    redirect_to topics_path, danger: '投稿を削除しました'
+  end
   
   private
     

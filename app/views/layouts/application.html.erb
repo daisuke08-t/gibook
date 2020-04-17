@@ -13,6 +13,9 @@
 
   <body>
     
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
         <div class="row">
@@ -20,10 +23,13 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li>
+                <%= link_to "Time Line", topics_path %>
+              </li>
+              <li>
                 <%= link_to "Mypage", '#' %>
               </li>
               <li>
-                <%= link_to "投稿", '#' %>
+                <%= link_to "投稿", new_topic_path %>
               </li>
               <li>
                 <%= link_to "検索", '#' %>
@@ -43,11 +49,9 @@
       </div>
     </nav>
     
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-    <% end %>
-    
+    <div class="yield-wrapper">
     <%= yield %>
+    </div>
     
     <script>
       $(function(){
