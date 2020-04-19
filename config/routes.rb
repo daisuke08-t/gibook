@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   
   root 'home#index'
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   resources :topics
   

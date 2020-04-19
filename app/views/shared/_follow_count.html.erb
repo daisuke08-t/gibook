@@ -1,0 +1,16 @@
+<% @user ||= current_user %>
+<div class="follow-container">
+  <%= link_to following_user_path(@user) do %>
+    <p>
+      フォロー
+      <%= @user.following.count %>
+    </p>
+  <% end %>
+  
+  <%= link_to followers_user_path(@user) do %>
+    <p>
+      フォロワー
+      <%= @user.followers.count %>
+    </p>
+  <% end %>
+</div>
