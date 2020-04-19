@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   resources :topics
   
+  resources :follows, only: [:create, :destroy]
+  
   post '/favorites', to: 'favorites#create'
   
   delete '/favorites_delete', to: 'favorites#destroy'
