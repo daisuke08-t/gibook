@@ -3,7 +3,9 @@
     <div class="row">
       <div class="user-show-container">
         <div class="user-icon">
-          
+          <%= link_to edit2_user_path(current_user) do %>
+            <%= image_tag 'icon/user-icon.jpg' %>
+          <% end %>
         </div>
         <h2><%= @user.name %></h2>
         
@@ -16,7 +18,7 @@
         </div>
         
         <div class="user-self-intro">
-          
+          <%= @user.content %>
         </div>
       </div>
     </div>

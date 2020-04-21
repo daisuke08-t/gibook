@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    #@user.icon = 'icon/user-icon.jpg'
     
     if @user.save
       redirect_to root_path, success: '登録が完了しました'
@@ -23,6 +24,10 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
+  end
+  
+  def edit2
     @user = User.find(params[:id])
   end
   
