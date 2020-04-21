@@ -5,7 +5,7 @@
         <h1>Time Line</h1>
         <% @topics.each do |topic| %>
           <div class="topic-index-container">
-            <%= link_to user_path(id: topic.user.id) do %>
+            <%= link_to user_path(id: topic.user_id) do %>
               <h3><%= topic.user.name %></h3>
             <% end %>
             <h2><%= topic.title %></h2>

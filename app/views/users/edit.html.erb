@@ -1,13 +1,12 @@
-<% provide(:button_name, '登録') %>
+<% provide(:button_name, '更新') %>
 <div class="users-new-wrapper">
   <div class="container">
     <div class="row">
       <div class="users-new-container">
-        <h1 class="text-center">Sign up</h1>
+        <h1 class="text-center">Update <%= @user.name %></h1>
         
         <%= render 'form' %>
         
-        <%= link_to "ログインはこちら", '#', class: 'text-black' %>
       </div>
     </div>
   </div>

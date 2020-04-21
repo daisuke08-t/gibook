@@ -2,10 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="user-show-container">
+        <div class="user-icon">
+          
+        </div>
         <h2><%= @user.name %></h2>
+        
+        <% if current_user?(@user) %>
+          <%= link_to "編集", edit_user_path(current_user) %>
+        <% end %>
         
         <div class="user-show-follow">
           <%= render 'follow_form' %>
+        </div>
+        
+        <div class="user-self-intro">
+          
         </div>
       </div>
     </div>
