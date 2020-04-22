@@ -29,6 +29,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :follower
   
   
+  mount_uploader :icon, ImageUploader
+  
+  
   
   
   #ユーザーをフォロー

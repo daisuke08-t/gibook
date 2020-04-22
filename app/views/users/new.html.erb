@@ -1,11 +1,32 @@
-<% provide(:button_name, '登録') %>
 <div class="users-new-wrapper">
   <div class="container">
     <div class="row">
       <div class="users-new-container">
         <h1 class="text-center">Sign up</h1>
         
-        <%= render 'form' %>
+        <%= form_for @user do |f| %>
+          <div class="form-group">
+            <%= f.label :name, class: 'text-black' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :email, class: 'text-black' %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :password, class: 'text-black' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: 'text-black' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          
+          <%= f.submit "登録", class: 'btn-block btn-black' %>
+        <% end %>
         
         <%= link_to "ログインはこちら", '#', class: 'text-black' %>
       </div>
