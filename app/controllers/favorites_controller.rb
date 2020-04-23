@@ -1,5 +1,11 @@
 class FavoritesController < ApplicationController
   
+  def index
+    @user = User.find_by(id: params[:user_id])
+    @favorites = Favorite.where(user_id: params[:user_id])
+    #binding.pry
+  end
+  
   def create
     favorite = Favorite.new
     favorite.user_id = current_user.id

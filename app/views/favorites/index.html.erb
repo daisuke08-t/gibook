@@ -1,0 +1,32 @@
+<div class="topic-index-wrapper">
+    <div class="container">
+      <div class="row">
+        <h2><%= @user.name %>のお気に入り</h2>
+        <% @favorites.each do |f| %>
+          <div class="topic-index-container">
+            <%= link_to user_path(id: f.topic.user_id) do %>
+              <h3><%= f.topic.user.name %></h3>
+            <% end %>
+            <h2><%= f.topic.title %></h2>
+            <p><%= f.topic.content %></p>
+            
+            <%= link_to "コメント", comment_new_path(topic_id: f.topic.id) %>
+            
+            <% if !f.topic.favorite_users.include?(current_user) %>
+              <%= link_to "Like！", favorites_path(topic_id: f.topic.id), method: :post %>
+            <% elsif f.topic.favorite_users.include?(current_user) %>
+              <%= link_to "Un Like!", favorites_delete_path(topic_id: f.topic.id), method: :delete %>
+            <% end %>
+            
+            <%= link_to "削除", topic_path(id: f.topic.id), method: :delete %>
+            
+            <% f.topic.comments.each do |c| %>
+              <P><%= c.user.name%></P>
+              <p><%= c.content %></p>
+              <%= link_to "コメント削除", comment_delete_path(id: c.id), method: :delete %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

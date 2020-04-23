@@ -3,24 +3,43 @@
     <div class="row">
       <div class="user-show-container">
         <div class="user-icon">
-          <%= link_to edit_user_path(current_user) do %>
+          <% if current_user?(@user) %>
+            <%= link_to edit_user_path(current_user) do %>
+              <%= image_tag @user.icon.url %>
+              <p>ユーザー情報の編集</p>
+            <% end %>
+          <% else %>
             <%= image_tag @user.icon.url %>
           <% end %>
         </div>
-        <h2><%= @user.name %></h2>
         
-        <% if current_user?(@user) %>
-          <%= link_to "編集", edit_user_path(current_user) %>
-        <% end %>
+        <div class="user-follow-url">
+          <%= render 'shared/follow_count' %>
+        </div>
+        
+        <div class="user-favorite-topics">
+          <%= link_to "お気に入りの投稿", favorites_path(user_id: @user.id) %>
+        </div>
+        <h2><%= @user.name %></h2>
         
         <div class="user-show-follow">
           <%= render 'follow_form' %>
         </div>
         
         <div class="user-self-intro">
+          <h3><%= @user.name %>の自己紹介</h3>
           <p><%= @user.content %></p>
-          <%= link_to "編集", edit_user_path(current_user) %>
         </div>
+        
+        <div class="user-topics">
+          <h3><%= @user.name %>の投稿</h3>
+          <% if @user.topics.any? %>
+            <%= @user.topics %>
+          <% else %>
+            <p>投稿をまだ行っていません</p>
+          <% end %>
+        </div>
+        
       </div>
     </div>
     

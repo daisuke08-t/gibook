@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   resources :follows, only: [:create, :destroy]
   
+  get '/favorites', to: 'favorites#index'
+  
   post '/favorites', to: 'favorites#create'
   
   delete '/favorites_delete', to: 'favorites#destroy'
