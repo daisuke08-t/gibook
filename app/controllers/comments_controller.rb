@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    uncomment = Comment.find_by(params[:id])
+    uncomment = Comment.find(params[:id])
     uncomment.destroy
     redirect_to topics_path, success: 'コメントを削除しました'
   end

@@ -21,6 +21,7 @@ module ApplicationHelper
     end
   end
   
+  
   #ユーザーが現在のユーザーと一致しない場合、ホームに返す（アクセス制限）
   def correct_user
     @user = User.find(params[:id])

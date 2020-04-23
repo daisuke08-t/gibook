@@ -10,15 +10,19 @@
             <h2><%= f.topic.title %></h2>
             <p><%= f.topic.content %></p>
             
-            <%= link_to "コメント", comment_new_path(topic_id: f.topic.id) %>
-            
-            <% if !f.topic.favorite_users.include?(current_user) %>
-              <%= link_to "Like！", favorites_path(topic_id: f.topic.id), method: :post %>
-            <% elsif f.topic.favorite_users.include?(current_user) %>
-              <%= link_to "Un Like!", favorites_delete_path(topic_id: f.topic.id), method: :delete %>
+            <% unless current_user?(f.topic.user) %>
+              <%= link_to "コメント", comment_new_path(topic_id: f.topic.id) %>
+              
+              <% if !f.topic.favorite_users.include?(current_user) %>
+                <%= link_to "Like！", favorites_path(topic_id: f.topic.id), method: :post %>
+              <% elsif f.topic.favorite_users.include?(current_user) %>
+                <%= link_to "Un Like!", favorites_delete_path(topic_id: f.topic.id), method: :delete %>
+              <% end %>
             <% end %>
             
-            <%= link_to "削除", topic_path(id: f.topic.id), method: :delete %>
+            <% if current_user?(f.topic.user) %>
+              <%= link_to "削除", topic_path(id: f.topic.id), method: :delete %>
+            <% end %>
             
             <% f.topic.comments.each do |c| %>
               <P><%= c.user.name%></P>

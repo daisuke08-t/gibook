@@ -34,7 +34,35 @@
         <div class="user-topics">
           <h3><%= @user.name %>の投稿</h3>
           <% if @user.topics.any? %>
-            <%= @user.topics %>
+            <% @user.topics.each do |topic| %>
+              <div class="topic-index-container">
+                <%= link_to user_path(id: topic.user_id) do %>
+                  <h3><%= topic.user.name %></h3>
+                <% end %>
+                <h2><%= topic.title %></h2>
+                <p><%= topic.content %></p>
+                
+                <% unless current_user?(topic.user) %>
+                  <%= link_to "コメント", comment_new_path(topic_id: topic.id) %>
+                
+                  <% if !topic.favorite_users.include?(current_user) %>
+                    <%= link_to "Like！", favorites_path(topic_id: topic.id), method: :post %>
+                  <% elsif topic.favorite_users.include?(current_user) %>
+                    <%= link_to "Un Like!", favorites_delete_path(topic_id: topic.id), method: :delete %>
+                  <% end %>
+                <% end %>
+                
+                <% if current_user?(topic.user) %>
+                  <%= link_to "削除", topic_path(id: topic.id), method: :delete %>
+                <% end %>
+                
+                <% topic.comments.each do |c| %>
+                  <P><%= c.user.name%></P>
+                  <p><%= c.content %></p>
+                  <%= link_to "コメント削除", comment_delete_path(id: c.id), method: :delete %>
+                <% end %>
+              </div>
+            <% end %>
           <% else %>
             <p>投稿をまだ行っていません</p>
           <% end %>

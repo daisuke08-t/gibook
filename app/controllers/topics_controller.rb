@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  
   def index
     @topics = Topic.all
   end
@@ -20,7 +21,7 @@ class TopicsController < ApplicationController
   end
   
   def destroy
-    topic = Topic.find_by(params[:id])
+    topic = Topic.find(params[:id])
   
     topic.destroy
     redirect_to topics_path, danger: '投稿を削除しました'

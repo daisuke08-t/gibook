@@ -6,6 +6,9 @@
           <h1 class="text-center">Introduction Books</h1>
           
           <%= form_for @topic do |f| %>
+            
+            <%= render 'shared/error_messages', model: f.object %>
+            
             <div class="form-group">
               <%= f.label :title, class: 'text-black' %>
               <%= f.text_field :title, class: 'form-control' %>
