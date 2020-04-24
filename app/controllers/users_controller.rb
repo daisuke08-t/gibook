@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     #@user.icon = 'icon/user-icon.jpg'
     
     if @user.save
+      log_in @user
       redirect_to root_path, success: '登録が完了しました'
     else
       flash.now[:danger] = '登録に失敗しました'

@@ -6,7 +6,7 @@
           <% @users.each do |user| %>
           
             <%= link_to user_path(id: user.id) do %>
-              <div><%= image_tag user.icon.url %></div>
+              <div><%= image_tag user.icon.url, size: "80x80" %></div>
               <h2><%= user.name %></h2>
             <% end %>
             

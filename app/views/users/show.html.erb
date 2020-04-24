@@ -5,11 +5,11 @@
         <div class="user-icon">
           <% if current_user?(@user) %>
             <%= link_to edit_user_path(current_user) do %>
-              <%= image_tag @user.icon.url %>
+              <%= image_tag @user.icon.url, size: "80x80" %>
               <p>ユーザー情報の編集</p>
             <% end %>
           <% else %>
-            <%= image_tag @user.icon.url %>
+            <%= image_tag @user.icon.url, size: "80x80" %>
           <% end %>
         </div>
         

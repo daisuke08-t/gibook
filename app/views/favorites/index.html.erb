@@ -5,6 +5,7 @@
         <% @favorites.each do |f| %>
           <div class="topic-index-container">
             <%= link_to user_path(id: f.topic.user_id) do %>
+              <%= image_tag f.topic.user.icon.url, size: "80x80" %>
               <h3><%= f.topic.user.name %></h3>
             <% end %>
             <h2><%= f.topic.title %></h2>
