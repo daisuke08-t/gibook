@@ -1,0 +1,99 @@
+<div class="new-book-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="new-book-container">
+        
+        <h1>Search Books</h1>
+        
+        <div class="form-group">
+          <label for="title">書籍のタイトルを入力してください</label>
+          <input type="text" class="form-control" id="title" placeholder="書籍のタイトル">
+        </div>
+        
+        <%= form_for @book do |f| %>
+          
+          <div class="search-result">
+            <p class="search-title">書籍タイトル：</p>
+            <p id="booktitle"></p>
+           <%= f.hidden_field :title, class: 'js-title' %>
+          </div>
+          
+          <div class="search-result">
+            <p class="search-title">著者：</p>
+            <p id="bookauthor"></p>
+            <%= f.hidden_field :author, class: 'js-author' %>
+          </div>
+          
+          <div class="search-result">
+            <p class="search-title">出版日：</p>
+            <p id="publisheddate"></p>
+            <%= f.hidden_field :published, class: 'js-published' %>
+          </div>
+          
+          <div class="search-result">
+            <p class="search-title">書籍サムネイル：</p>
+            <p id="bookthumbnail"></p>
+            <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
+          </div>
+          
+          <div class="search-result">
+            <p class="search-title">書籍概要：</p>
+            <p id="bookdescription"></p>
+            <%= f.hidden_field :description, class: 'js-description' %>
+          </div>
+          
+          <%= f.submit "登録", class: 'btn-block btn-black' %>
+          
+        <% end %>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('#title').change(function(){
+    const intitle =$('#title').val();
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + intitle;
+    
+    $.getJSON(url, function(data){
+      
+      if(!data.totalItems) {
+        $('#title').val('');
+        
+        $('#booktitle').text('');
+        
+        $('#bookauthor').text('');
+        
+        $('#publisheddate').text('');
+        
+        $('#bookthumbnail').text('');
+        
+        $('#bookdescription').text('');
+        
+      }else {
+        
+        $('#booktitle').text(data.items[0].volumeInfo.title);
+        $('.js-title').val(data.items[0].volumeInfo.title);
+        
+        $('#bookauthor').text(data.items[0].volumeInfo.authors);
+        $('.js-author').val(data.items[0].volumeInfo.authors);
+        
+        $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
+        $('.js-published').val(data.items[0].volumeInfo.publishedDate);
+        
+        $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
+        $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+        
+        $('#bookdescription').text(data.items[0].volumeInfo.description);
+        $('.js-description').val(data.items[0].volumeInfo.description);
+        
+      }
+      
+    });
+    
+  });
+</script>
+

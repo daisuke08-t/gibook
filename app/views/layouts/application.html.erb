@@ -29,20 +29,20 @@
                 <%= link_to "Mypage", current_user %>
               </li>
               <li>
-                <%= link_to "投稿", new_topic_path %>
+                <%= link_to "New Post", new_topic_path %>
               </li>
               <li>
-                <%= link_to "検索", '#' %>
+                <%= link_to "Search Books", new_book_path %>
               </li>
               <li>
-                <%= link_to "ログアウト", logout_path, method: :delete %>
+                <%= link_to "Log out", logout_path, method: :delete %>
               </li>
             <% else %>
               <li>
-                <%= link_to "sign up", new_user_path %>
+                <%= link_to "Sign up", new_user_path %>
               </li>
               <li>
-                <%= link_to "log in", login_path %>
+                <%= link_to "Log in", login_path %>
               </li>
             <% end %>
           </ul>

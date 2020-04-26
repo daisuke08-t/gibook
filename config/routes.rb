@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'books/new'
   get 'topics/new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -28,5 +29,7 @@ Rails.application.routes.draw do
   post '/comments', to: 'comments#create'
   
   delete '/comment_delete', to: 'comments#destroy'
+  
+  resources :books
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

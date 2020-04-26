@@ -1,0 +1,34 @@
+class BooksController < ApplicationController
+  
+  def index
+    @books = current_user.books
+  end
+  
+  def new
+    @book = Book.new
+  end
+  
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    
+    if @book.save
+      redirect_to books_path, success: '書籍を登録しました'
+    else
+      flash.now[:danger] = '書籍を登録できませんでした'
+      render :new
+    end
+  end
+  
+  def destroy
+    book = Book.find_by(id: params[:id], user_id: current_user.id)
+    book.destroy
+    redirect_to books_path, success: '書籍を削除しました'
+  end
+  
+  private
+    
+    def book_params
+      params.require(:book).permit(:title, :author, :published, :thumbnail, :description)
+    end
+end
