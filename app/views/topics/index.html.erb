@@ -10,6 +10,14 @@
               <h3><%= topic.user.name %></h3>
             <% end %>
             <h2><%= topic.title %></h2>
+            <h3><%= topic.author %></h3>
+            
+            <% if !topic.thumbnail.nil? %>
+              <div>
+                <img src="<%= topic.thumbnail %>" alt="Book thumbnail">
+              </div>
+            <% end %>
+            
             <p><%= topic.content %></p>
             
             <% unless current_user?(topic.user) %>

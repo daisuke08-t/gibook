@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   
   def new
     @book = Book.new
+    @topic = Topic.new
   end
   
   def create

@@ -20,6 +20,11 @@
         <div class="user-favorite-topics">
           <%= link_to "お気に入りの投稿", favorites_path(user_id: @user.id) %>
         </div>
+        
+        <div class="user-books">
+          <%= link_to "My Books", books_path %>
+        </div>
+        
         <h2><%= @user.name %></h2>
         
         <div class="user-show-follow">
@@ -40,6 +45,14 @@
                   <h3><%= topic.user.name %></h3>
                 <% end %>
                 <h2><%= topic.title %></h2>
+                <h3><%= topic.author %></h3>
+                
+                <% if !topic.thumbnail.nil? %>
+                  <div>
+                    <img src="<%= topic.thumbnail %>" alt="Book thumbnail">
+                  </div>
+                <% end %>
+                
                 <p><%= topic.content %></p>
                 
                 <% unless current_user?(topic.user) %>
