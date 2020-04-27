@@ -30,7 +30,7 @@ class TopicsController < ApplicationController
   private
     
     def topic_params
-      params.require(:topic).permit(:title, :author, :thumbnail, :content)
+      params.require(:topic).permit(:title, :author, :thumbnail, :published, :description, :content)
     end
   
 end
