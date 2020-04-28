@@ -8,7 +8,6 @@ one:
   thumbnail: MyString
   description: MyString
   content: MyString
-  text: MyString
 
 two:
   user_id: 1
@@ -18,4 +17,3 @@ two:
   thumbnail: MyString
   description: MyString
   content: MyString
-  text: MyString
