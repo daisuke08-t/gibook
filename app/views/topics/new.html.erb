@@ -11,12 +11,26 @@
             
             <div class="form-group">
               <%= f.label :title, class: 'text-black' %>
-              <%= f.text_field :title, class: 'form-control' %>
+              <%= f.text_field :title, value: params[:topic][:title], class: 'form-control' %>
             </div>
             
             <div class="form-group">
+              <%= f.label :author, class: 'text-black' %>
+              <%= f.text_field :author, value: params[:topic][:author], class: 'form-control' %>
+            </div>
+            
+            <%= f.hidden_field :published, value: params[:topic][:published], class: 'form-control' %>
+            
+            <div class="form-group">
+              <img src="<%= params[:topic][:thumbnail] %>" alt="Book thumbnail">
+              <%= f.hidden_field :thumbnail, value: params[:topic][:thumbnail], class: 'form-control' %>
+            </div>
+            
+            <%= f.hidden_field :description, value: params[:topic][:description], class: 'form-control' %>
+            
+            <div class="form-group">
               <%= f.label :content, class: 'text-black' %>
-              <%= f.text_field :content, class: 'form-control' %>
+              <%= f.text_area :content, class: 'form-control' %>
             </div>
             
             <%= f.submit "投稿", class: 'btn-block btn-black' %>

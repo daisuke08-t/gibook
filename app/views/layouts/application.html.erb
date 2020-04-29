@@ -19,7 +19,9 @@
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
         <div class="row">
-          <h1 class="navbar-brand">gibook</h1>
+          <h1 class="navbar-brand">
+            <%= link_to "gibook", root_path %>
+          </h1>
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li>

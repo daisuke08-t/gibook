@@ -10,78 +10,65 @@
           <input type="text" class="form-control" id="title" placeholder="書籍のタイトル">
         </div>
         
-        
-        
-        <%= form_for @topic do |f| %>
+      
+        <%= form_for @book do |f| %>
           
           <div class="search-result">
             <p class="search-title">書籍タイトル：</p>
-            <!--<p id="booktitle"></p>-->
-            <%= f.text_field :title, class: 'js-title' %>
+            <p id="booktitle"0></p>
+            <%= f.hidden_field :title, class: 'js-title' %>
           </div>
           
           <div class="search-result">
             <p class="search-title">著者：</p>
-            <!--<p id="bookauthor"></p>-->
-            <%= f.text_field :author, class: 'js-author' %>
+            <p id="bookauthor"></p>
+            <%= f.hidden_field :author, class: 'js-author' %>
           </div>
           
           <div class="search-result">
             <p class="search-title">出版日：</p>
-            <!--<p id="publisheddate"></p>-->
-            <%= f.text_field :published, class: 'js-published' %>
+            <p id="publisheddate"></p>
+            <%= f.hidden_field :published, class: 'js-published' %>
           </div>
           
           <div class="search-result">
             <p class="search-title">書籍サムネイル：</p>
             <p id="bookthumbnail"></p>
-            <%= f.text_field :thumbnail, class: 'js-thumbnail' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍概要：</p>
-            <!--<p id="bookdescription"></p>-->
-            <%= f.text_area :description, class: 'js-description' %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :content, class: 'text-black' %>
-            <%= f.text_area :content, class: 'form-control' %>
-          </div>
-          
-          <%= f.submit "書籍を紹介", class: 'btn-block btn-black' %>
-          
-        <% end %>
-        
-        <%= form_for @book do |f| %>
-          
-          <div class="search-result">
-           <%= f.hidden_field :title, class: 'js-title' %>
-          </div>
-          
-          <div class="search-result">
-            <%= f.hidden_field :author, class: 'js-author' %>
-          </div>
-          
-          <div class="search-result">
-            <%= f.hidden_field :published, class: 'js-published' %>
-          </div>
-          
-          <div class="search-result">
             <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
           </div>
           
           <div class="search-result">
+            <p class="search-title">書籍概要：</p>
+            <p id="bookdescription"></p>
             <%= f.hidden_field :description, class: 'js-description' %>
           </div>
           
-          <%= f.submit "My Booksに追加", class: 'btn-block btn-black' %>
+          
+          <%= f.submit "My Books", class: 'btn-block btn-black' %>
           
         <% end %>
         
-        
-        
-        
+        <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
+          
+          
+          <%= f.hidden_field :title, class: 'js-title' %>
+          
+          <%= f.hidden_field :author, class: 'js-author' %>
+          
+          
+          <%= f.hidden_field :published, class: 'js-published' %>
+          
+          
+          <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
+          
+          
+          <%= f.hidden_field :description, class: 'js-description' %>
+          
+          
+          <%= f.submit "書籍を紹介", class: 'btn-block btn-black' %>
+          
+          
+        <% end %>
         
         
         
@@ -113,23 +100,22 @@
         
       }else {
         
-        $('#booktitle').text(data.items[0].volumeInfo.title);
-        $('.js-title').val(data.items[0].volumeInfo.title);
-        
-        $('#bookauthor').text(data.items[0].volumeInfo.authors);
-        $('.js-author').val(data.items[0].volumeInfo.authors);
-        
-        $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
-        $('.js-published').val(data.items[0].volumeInfo.publishedDate);
-        
-        $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
-        $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
-        
-        $('#bookdescription').text(data.items[0].volumeInfo.description);
-        $('.js-description').val(data.items[0].volumeInfo.description);
-        
-        //for (var i = 0; i < data.items.length; i++) {
+          $('#booktitle').text(data.items[0].volumeInfo.title);
+          $('.js-title').val(data.items[0].volumeInfo.title);
           
+          $('#bookauthor').text(data.items[0].volumeInfo.authors);
+          $('.js-author').val(data.items[0].volumeInfo.authors);
+          
+          $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
+          $('.js-published').val(data.items[0].volumeInfo.publishedDate);
+          
+          $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
+          $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+          
+          $('#bookdescription').text(data.items[0].volumeInfo.description);
+          $('.js-description').val(data.items[0].volumeInfo.description);
+          
+        //for (var i = 0; i < data.items.length; i++) {
           //$('#booktitle').text(data.items[i].volumeInfo.title);
           //$('.js-title').val(data.items[i].volumeInfo.title);
           
@@ -154,4 +140,3 @@
     
   });
 </script>
-
