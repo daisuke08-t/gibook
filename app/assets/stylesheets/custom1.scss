@@ -1,0 +1,39 @@
+@media (min-width: 768px) {
+  
+  /*users new, session new*/
+  .users-new-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  
+    .users-new-container {
+     position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      -webkit-transform: translateY(-50%) translateX(-50%);
+      
+      #user_name, #user_email, #user_password, #user_password_confirmation {
+        width: 450px;
+        height: 40px;
+        
+      }
+      
+      #session_email, #session_password {
+        width: 450px;
+        height: 40px;
+        
+      }
+      
+      .btn {
+        width: 200px;
+        height: 50px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
+
+}
+

@@ -4,9 +4,11 @@
     <title>Gibook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   
  
@@ -19,35 +21,37 @@
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
         <div class="row">
-          <h1 class="navbar-brand">
-            <%= link_to "gibook", root_path %>
-          </h1>
-          <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
-              <li>
-                <%= link_to "Time Line", topics_path %>
-              </li>
-              <li>
-                <%= link_to "Mypage", current_user %>
-              </li>
-              <li>
-                <%= link_to "New Post", new_topic_path %>
-              </li>
-              <li>
-                <%= link_to "Search Books", new_book_path %>
-              </li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "Sign up", new_user_path %>
-              </li>
-              <li>
-                <%= link_to "Log in", login_path %>
-              </li>
-            <% end %>
-          </ul>
+          <div class="navbar-container">
+            <h1 class="navbar-brand">
+              <%= link_to "gibook", root_path %>
+            </h1>
+            <ul class="nav navbar-nav navbar-right">
+              <% if logged_in? %>
+                <li>
+                  <%= link_to "Time Line", topics_path %>
+                </li>
+                <li>
+                  <%= link_to "Mypage", current_user %>
+                </li>
+                <li>
+                  <%= link_to "New Post", new_topic_path %>
+                </li>
+                <li>
+                  <%= link_to "Search Books", new_book_path %>
+                </li>
+                <li>
+                  <%= link_to "Log out", logout_path, method: :delete %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "Sign up", new_user_path %>
+                </li>
+                <li>
+                  <%= link_to "Log in", login_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
       </div>
     </nav>
     
