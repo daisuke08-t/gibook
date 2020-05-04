@@ -1,21 +1,22 @@
 <div class="user-following-wrapper">
   <div class="container">
     <div class-"row">
-      <div class="user-following-container">
-        <% if @users.any? %>
-          <% @users.each do |user| %>
+      <h1 class="text-center">Following</h1>
+      <% if @users.any? %>
+        <% @users.each do |user| %>
+          <div class="user-following-container">
           
             <%= link_to user_path(id: user.id) do %>
               <div><%= image_tag user.icon.url, size: "80x80" %></div>
               <h2><%= user.name %></h2>
             <% end %>
             
-          <% end %>
-          
-        <% else %>
-          <p>現在フォローしているユーザーはいません</p>
+          </div>
         <% end %>
-      </div>
+        
+      <% else %>
+        <p class="text-center">現在フォローしているユーザーはいません</p>
+      <% end %>
     </div>
   </div>
 </div>
