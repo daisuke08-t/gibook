@@ -146,7 +146,87 @@
 }
 
 
+/*topic index*/
 
+.topic-index-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: rgba(208, 208, 208, 0.8);
+  
+  .topic-index-container {
+    width: 500px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    
+    .mypage-url {
+      display: block;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      margin-left: 5px;
+      
+      img {
+        display: block;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+      
+      
+    }
+    
+    .topic-info {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      
+      .topic-book-info {
+        margin-left: 40px;
+        
+        .topic-comment {
+          width: 230px;
+          padding: 6px;
+          margin-bottom: 3px;
+          margin-top: 3px;
+          background-color: white;
+          border: 1px solid #D0D0D0;
+          border-radius: 20px;
+          display: flex;
+          justify-content: space-between;
+          
+          .topic-comment-user {
+            
+            .comment-user {
+              margin-left: 5px;
+            }
+            
+            .comment-content {
+              margin-left: 10px;
+              margin-bottom: 0;
+            }
+          }
+          
+          .comment-del-url {
+            float: right;
+          }
+        }
+      }
+      
+      .topic-content-info {
+        width: auto;
+        margin-left: 30px;
+        
+        .topic-content {
+          height: 60px;
+          
+        }
+      }
+    }
+  }
+}
 
 
 

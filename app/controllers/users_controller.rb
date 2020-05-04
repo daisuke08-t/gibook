@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def this_user_topics
+    @user = User.find(params[:id])
+  end
+  
   
   def create
     @user = User.new(user_params)
