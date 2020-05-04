@@ -12,7 +12,7 @@
               <% end %>
               
               <div class="topic-info">
-                
+              
                 <div class="topic-book-info">
                   <h2 class="topic-title"><%= topic.title %></h2>
                   <% if !topic.thumbnail.nil? %>
@@ -28,31 +28,33 @@
                       <%= link_to "Un Like!", favorites_delete_path(topic_id: topic.id), method: :delete, class:'favorite-url' %>
                     <% end %>
                   <% end %>
-                  
-                  <% topic.comments.each do |c| %>
-                    <div class="topic-comment">
-                      
-                      <div class="topic-comment-user">
-                        <P class="comment-user"><%= c.user.name%></P>
-                        <p class="comment-content"><%= c.content %></p>
-                      </div>
-                      
-                      <div class="comment-del-url">
-                        <%= link_to "コメント削除", comment_delete_path(id: c.id), method: :delete %>
-                      </div>
-                      
-                    </div>
-                  <% end %>
-                  
                 </div>
-                
+              
                 <div class="topic-content-info">
-                  
                   <p class="topic-content"><%= topic.content %></p>
-            
                 </div>
-                
+              
               </div>
+            
+              <% topic.comments.each do |c| %>
+                <div class="topic-comment">
+                  
+                  <div class="topic-comment-user">
+                    <div class="comment-user-container">
+                      <%= link_to user_path(id: c.user.id), class: 'comment-user-url' do %>
+                        <%= image_tag c.user.icon.url, size: "30x30" %>
+                        <P class="comment-user"><%= c.user.name%></P>
+                      <% end %>
+                    </div>
+                    <p class="comment-content"><%= c.content %></p>
+                  </div>
+                  
+                  <div class="comment-del-url">
+                    <%= link_to "コメント削除", comment_delete_path(id: c.id), method: :delete %>
+                  </div>
+                  
+                </div>
+              <% end %>
             
             </div>
           <% end %>

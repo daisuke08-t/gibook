@@ -2,44 +2,61 @@
   <div class="container">
     <div class="row">
       <div class="user-show-container">
-        <div class="user-icon">
-          <% if current_user?(@user) %>
-            <%= link_to edit_user_path(current_user) do %>
+        
+        <div class="user-show-info1">
+          
+          <div class="user-icon">
+            <% if current_user?(@user) %>
+              <%= link_to edit_user_path(current_user) do %>
+                <%= image_tag @user.icon.url, size: "80x80" %>
+                <p>ユーザーの編集</p>
+              <% end %>
+            <% else %>
               <%= image_tag @user.icon.url, size: "80x80" %>
-              <p>ユーザー情報の編集</p>
             <% end %>
-          <% else %>
-            <%= image_tag @user.icon.url, size: "80x80" %>
-          <% end %>
+          </div>
+          
+          <div class="user-name">
+            
+            <h2><%= @user.name %></h2>
+            
+            <div class="user-show-follow">
+              <%= render 'follow_form' %>
+            </div>
+            
+          </div>
+          
         </div>
         
-        <div class="user-follow-url">
-          <%= render 'shared/follow_count' %>
-        </div>
-        
-        <div class="user-favorite-topics">
-          <%= link_to "お気に入りの投稿", favorites_path(user_id: @user.id) %>
-        </div>
-        
-        <div class="user-books">
-          <%= link_to "My Books", books_path %>
-        </div>
-        
-        <div class="user-topics">
-          <%= link_to this_user_topics_user_path do %>
-            <p><%= @user.name %>の投稿</p>
-          <% end %>
-        </div>
-        
-        <h2><%= @user.name %></h2>
-        
-        <div class="user-show-follow">
-          <%= render 'follow_form' %>
-        </div>
-        
-        <div class="user-self-intro">
-          <h3><%= @user.name %>の自己紹介</h3>
-          <p><%= @user.content %></p>
+        <div class="user-show-info2">
+          
+          <div class="user-show-link">
+            
+            <div class="user-follow-url">
+              <%= render 'shared/follow_count' %>
+            </div>
+            
+            <div class="user-favorite-topics">
+              <%= link_to "お気に入りの投稿", favorites_path(user_id: @user.id) %>
+            </div>
+            
+            <div class="user-books">
+              <%= link_to "My Books", books_path %>
+            </div>
+            
+            <div class="user-topics">
+              <%= link_to this_user_topics_user_path do %>
+                <p><%= @user.name %>の投稿</p>
+              <% end %>
+            </div>
+            
+          </div>
+          
+          <div class="user-self-intro">
+            <h3><%= @user.name %>の自己紹介</h3>
+            <p><%= @user.content %></p>
+          </div>
+          
         </div>
         
       </div>
