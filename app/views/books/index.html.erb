@@ -1,31 +1,36 @@
 <div class="book-wrapper">
   <div class="container">
     <div class="row">
+      <h2 class="text-center">My Books</h2>
       <div class="book-container">
-        
-        <h2>Book</h2>
         <% @books.each do |book| %>
-          
-          <div>
-            <h3><%= book.title %></h3>
-            <%= link_to "削除", book_path(id: book.id), method: :delete %>
+        
+          <div class="book-container-info">
+            
+            <div class="book-index-title">
+              <h3><%= book.title %></h3>
+              <%= link_to "削除", book_path(id: book.id), method: :delete %>
+            </div>
+            
+            <div class="book-index-thumbnail">
+              <%= image_tag book.thumbnail %>
+            </div>
+            
+            <div class="book-index-author">
+              <p>著者：<%= book.author %></p>
+            </div>
+            
+            <div class="book-index-published">
+              <p>出版日：<%= book.published %></p>
+            </div>
+            
+            <div class="book-index-description">
+              <p>書籍概要：</p>
+              <p><%= book.description %></p>
+            </div>
+            
           </div>
-          
-          <div>
-            <%= image_tag book.thumbnail %>
-          </div>
-          
-          <div>
-            <p><%= book.author %></p>
-          </div>
-          
-          <div>
-            <p><%= book.published %></p>
-          </div>
-          
-          <div>
-            <p><%= book.description %></p>
-          </div>
+        
         <% end %>
       </div>
     </div>

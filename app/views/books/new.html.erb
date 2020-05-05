@@ -1,9 +1,9 @@
 <div class="new-book-wrapper">
   <div class="container">
     <div class="row">
+      <h1 class="text-center">Search Books</h1>
       <div class="new-book-search-container">
         <div class="form-group">
-          <h1>Search Books</h1>
           <label for="title">書籍のタイトルを入力してください</label>
           <input type="text" class="form-control" id="title" placeholder="書籍のタイトル">
         </div>
@@ -11,188 +11,199 @@
       
       <div class="new-book-container1">
         
-        <%= form_for @book do |f| %>
+        <div class="new-book-info">
+          <%= form_for @book do |f| %>
+            
+            <div class="search-result">
+              <label for="search-title">書籍タイトル：</label>
+              <p id="booktitle"></p>
+              <%= f.hidden_field :title, class: 'js-title' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">著者：</label>
+              <p id="bookauthor"></p>
+              <%= f.hidden_field :author, class: 'js-author' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">出版日：</label>
+              <p id="publisheddate"></p>
+              <%= f.hidden_field :published, class: 'js-published' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍サムネイル：</label>
+              <p id="bookthumbnail"></p>
+              <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍概要：</label>
+              <p id="bookdescription"></p>
+              <%= f.hidden_field :description, class: 'js-description' %>
+            </div>
+            
+            
+            <%= f.submit "My Books", class: 'btn-block btn-black btn' %>
+            
+          <% end %>
           
-          <div class="search-result">
-            <p class="search-title">書籍タイトル：</p>
-            <p id="booktitle"></p>
+          <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
+            
+            
             <%= f.hidden_field :title, class: 'js-title' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">著者：</p>
-            <p id="bookauthor"></p>
+            
             <%= f.hidden_field :author, class: 'js-author' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">出版日：</p>
-            <p id="publisheddate"></p>
+            
+            
             <%= f.hidden_field :published, class: 'js-published' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍サムネイル：</p>
-            <p id="bookthumbnail"></p>
+            
+            
             <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍概要：</p>
-            <p id="bookdescription"></p>
+            
+            
             <%= f.hidden_field :description, class: 'js-description' %>
-          </div>
+            
+            
+            <%= f.submit "書籍を紹介", class: 'btn-block btn-black btn' %>
+          <% end %>
+        </div>
           
-          
-          <%= f.submit "My Books", class: 'btn-block btn-black' %>
-          
-        <% end %>
         
-        <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
-          
-          
-          <%= f.hidden_field :title, class: 'js-title' %>
-          
-          <%= f.hidden_field :author, class: 'js-author' %>
-          
-          
-          <%= f.hidden_field :published, class: 'js-published' %>
-          
-          
-          <%= f.hidden_field :thumbnail, class: 'js-thumbnail' %>
-          
-          
-          <%= f.hidden_field :description, class: 'js-description' %>
-          
-          
-          <%= f.submit "書籍を紹介", class: 'btn-block btn-black' %>
-          
-          
-        <% end %>
       </div>
       
       <div class="new-book-container2">
         
-        <%= form_for @book do |f| %>
+        <div class="new-book-info">
+          <%= form_for @book do |f| %>
           
-          <div class="search-result">
-            <p class="search-title">書籍タイトル：</p>
-            <p id="booktitle2"></p>
+            <div class="search-result">
+              <label for="search-title">書籍タイトル：</label>
+              <p id="booktitle2"></p>
+              <%= f.hidden_field :title, class: 'js-title2' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">著者：</label>
+              <p id="bookauthor2"></p>
+              <%= f.hidden_field :author, class: 'js-author2' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">出版日：</label>
+              <p id="publisheddate2"></p>
+              <%= f.hidden_field :published, class: 'js-published2' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍サムネイル：</label>
+              <p id="bookthumbnail2"></p>
+              <%= f.hidden_field :thumbnail, class: 'js-thumbnail2' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍概要：</label>
+              <p id="bookdescription2"></p>
+              <%= f.hidden_field :description, class: 'js-description2' %>
+            </div>
+            
+            
+            <%= f.submit "My Books", class: 'btn-block btn-black btn' %>
+            
+          <% end %>
+          
+          <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
+            
+            
             <%= f.hidden_field :title, class: 'js-title2' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">著者：</p>
-            <p id="bookauthor2"></p>
+            
             <%= f.hidden_field :author, class: 'js-author2' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">出版日：</p>
-            <p id="publisheddate2"></p>
+            
+            
             <%= f.hidden_field :published, class: 'js-published2' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍サムネイル：</p>
-            <p id="bookthumbnail2"></p>
+            
+            
             <%= f.hidden_field :thumbnail, class: 'js-thumbnail2' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍概要：</p>
-            <p id="bookdescription2"></p>
+            
+            
             <%= f.hidden_field :description, class: 'js-description2' %>
-          </div>
+            
+            
+            <%= f.submit "書籍を紹介", class: 'btn-block btn-black btn' %>
+            
+            
+          <% end %>
+        </div>
           
-          
-          <%= f.submit "My Books", class: 'btn-block btn-black' %>
-          
-        <% end %>
         
-        <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
-          
-          
-          <%= f.hidden_field :title, class: 'js-title2' %>
-          
-          <%= f.hidden_field :author, class: 'js-author2' %>
-          
-          
-          <%= f.hidden_field :published, class: 'js-published2' %>
-          
-          
-          <%= f.hidden_field :thumbnail, class: 'js-thumbnail2' %>
-          
-          
-          <%= f.hidden_field :description, class: 'js-description2' %>
-          
-          
-          <%= f.submit "書籍を紹介", class: 'btn-block btn-black' %>
-          
-          
-        <% end %>
       </div>
       
       <div class="new-book-container3">
         
-        <%= form_for @book do |f| %>
           
-          <div class="search-result">
-            <p class="search-title">書籍タイトル：</p>
-            <p id="booktitle3"></p>
+        <div class="new-book-info">
+          <%= form_for @book do |f| %>
+            
+            <div class="search-result">
+              <label for="search-title">書籍タイトル：</label>
+              <p id="booktitle3"></p>
+              <%= f.hidden_field :title, class: 'js-title3' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">著者：</label>
+              <p id="bookauthor3"></p>
+              <%= f.hidden_field :author, class: 'js-author3' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">出版日：</label>
+              <p id="publisheddate3"></p>
+              <%= f.hidden_field :published, class: 'js-published3' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍サムネイル：</label>
+              <p id="bookthumbnail3"></p>
+              <%= f.hidden_field :thumbnail, class: 'js-thumbnail3' %>
+            </div>
+            
+            <div class="search-result">
+              <label for="search-title">書籍概要：</label>
+              <p id="bookdescription3"></p>
+              <%= f.hidden_field :description, class: 'js-description3' %>
+            </div>
+            
+            
+            <%= f.submit "My Books", class: 'btn-block btn-black btn' %>
+            
+          <% end %>
+          
+          <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
+            
+            
             <%= f.hidden_field :title, class: 'js-title3' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">著者：</p>
-            <p id="bookauthor3"></p>
+            
             <%= f.hidden_field :author, class: 'js-author3' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">出版日：</p>
-            <p id="publisheddate3"></p>
+            
+            
             <%= f.hidden_field :published, class: 'js-published3' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍サムネイル：</p>
-            <p id="bookthumbnail3"></p>
+            
+            
             <%= f.hidden_field :thumbnail, class: 'js-thumbnail3' %>
-          </div>
-          
-          <div class="search-result">
-            <p class="search-title">書籍概要：</p>
-            <p id="bookdescription3"></p>
+            
+            
             <%= f.hidden_field :description, class: 'js-description3' %>
-          </div>
+            
+            
+            <%= f.submit "書籍を紹介", class: 'btn-block btn-black btn' %>
+            
+            
+          <% end %>
+        </div>
           
-          
-          <%= f.submit "My Books", class: 'btn-block btn-black' %>
-          
-        <% end %>
         
-        <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
-          
-          
-          <%= f.hidden_field :title, class: 'js-title3' %>
-          
-          <%= f.hidden_field :author, class: 'js-author3' %>
-          
-          
-          <%= f.hidden_field :published, class: 'js-published3' %>
-          
-          
-          <%= f.hidden_field :thumbnail, class: 'js-thumbnail3' %>
-          
-          
-          <%= f.hidden_field :description, class: 'js-description3' %>
-          
-          
-          <%= f.submit "書籍を紹介", class: 'btn-block btn-black' %>
-          
-          
-        <% end %>
       </div>
     </div>
   </div>
@@ -200,6 +211,9 @@
 
 
 <script>
+  let book1 = $('.new-book-container1');
+  book1.hide();
+  
   let book2 = $('.new-book-container2');
   book2.hide();
   
@@ -228,6 +242,12 @@
         
       }else {
         
+        book1.addClass('open');
+        
+        if(book1.hasClass('open')){
+          book1.show();
+        }
+        
         $('#booktitle').text(data.items[0].volumeInfo.title);
         $('.js-title').val(data.items[0].volumeInfo.title);
         
@@ -245,9 +265,9 @@
         
         
         
-        book2.addClass('open');
+        book2.addClass('open2');
         
-        if(book2.hasClass('open')){
+        if(book2.hasClass('open2')){
           book2.show();
         }
         
@@ -268,9 +288,9 @@
         
         
         
-        book3.addClass('open2');
+        book3.addClass('open3');
         
-        if(book3.hasClass('open2')){
+        if(book3.hasClass('open3')){
           book3.show();
         }
         
