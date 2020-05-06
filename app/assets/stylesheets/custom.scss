@@ -10,13 +10,14 @@ body {
 }
 
 
+
 .yield-wrapper {
   margin-top: 50px;
 }
 
 /*flafh css*/
 .alert {
-  margin-bottom: 0px;
+  margin-top: 50px;
   position: fixed;
   width: 100%;
   z-index: 10000;
@@ -28,6 +29,10 @@ body {
   background-color: rgba(0,0,0,0.5);
   
   .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
     .navbar-brand {
       margin: 0px;
       a {
@@ -39,19 +44,58 @@ body {
       }
     }
     
+    
     ul {
+      display: flex;
+      align-items: center;
       font-size: 15px;
       font-weight: 400px;
+      color: white;
       
       li {
-        color: white;
         
         a {
           display: block;
-          color: white; 
-          text-decoration: none;
+          font-size: 15px;
+          font-weight: 400px;
+          color: white;
         }
       }
+      
+      div {
+        
+        a {
+          display: block;
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          font-weight: 400;
+        }
+        
+        ul {
+          display: none;
+          width: 100px;
+          height: auto;
+          padding: 0px;
+          
+          li {
+            width: 100%;
+            a {
+              display: block;
+              text-decoration: none;
+              color: black;
+              font-size: 15px;
+              font-weight: 600;
+              width: 50px;
+              padding: 0px;
+              padding-left: 2px;
+              padding-bottom: 3px;
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+      
       
     }
   }

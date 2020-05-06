@@ -211,6 +211,7 @@
 
 
 <script>
+  
   let book1 = $('.new-book-container1');
   book1.hide();
   
@@ -228,6 +229,7 @@
     $.getJSON(url, function(data){
       
       if(!data.totalItems) {
+        
         $('#title').val('');
         
         $('#booktitle').text('');
