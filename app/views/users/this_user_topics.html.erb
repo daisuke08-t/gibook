@@ -6,10 +6,20 @@
         <% if @user.topics.any? %>
           <% @user.topics.each do |topic| %>
             <div class="topic-index-container">
-              <%= link_to user_path(id: topic.user_id), class: 'mypage-url' do %>
-                <%= image_tag topic.user.icon.url, size: "80x80" %>
-                <h3><%= topic.user.name %></h3>
-              <% end %>
+              <div class="this-user-container">
+                
+                <%= link_to user_path(id: topic.user_id), class: 'mypage-url' do %>
+                  <%= image_tag topic.user.icon.url, size: "80x80" %>
+                  <h3><%= topic.user.name %></h3>
+                <% end %>
+                
+                <% if current_user?(@user) %>
+                  <%= link_to topic_path(id: topic.id), method: :delete, class: 'this-user-del-url' do %>
+                    <i class="fas fa-trash-alt fa_trash"></i>
+                  <% end %>
+                <% end %>
+                
+              </div>
               
               <div class="topic-info">
               
@@ -21,12 +31,18 @@
                   <p><%= topic.author %></p>
                   <% unless current_user?(topic.user) %>
                     <div>
-                      <%= link_to "コメント", comment_new_path(topic_id: topic.id), class: 'comment-url' %>
+                      <%= link_to comment_new_path(topic_id: topic.id), class: 'comment-url' do %>
+                        <i class="far fa-comment-dots fa_comment"></i>
+                      <% end %>
                       
                       <% if !topic.favorite_users.include?(current_user) %>
-                        <%= link_to "Like！", favorites_path(topic_id: topic.id), method: :post, class: 'favorite-url' %>
+                        <%= link_to favorites_path(topic_id: topic.id), method: :post, class: 'favorite-url' do %>
+                          <i class="far fa-heart fa_heart"></i>
+                        <% end %>
                       <% elsif topic.favorite_users.include?(current_user) %>
-                        <%= link_to "Un Like!", favorites_delete_path(topic_id: topic.id), method: :delete, class:'favorite-url' %>
+                        <%= link_to favorites_delete_path(topic_id: topic.id), method: :delete, class:'favorite-url' do %>
+                          <i class="fas fa-heart fa_heart2"></i>
+                        <% end %>
                       <% end %>
                     </div>
                   <% end %>
@@ -52,7 +68,9 @@
                   </div>
                   
                   <div class="comment-del-url">
-                    <%= link_to "コメント削除", comment_delete_path(id: c.id), method: :delete %>
+                    <%= link_to comment_delete_path(id: c.id), method: :delete do %>
+                      <i class="fas fa-trash-alt fa_trash"></i>
+                    <% end %>
                   </div>
                   
                 </div>

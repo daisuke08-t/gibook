@@ -9,7 +9,9 @@
             
             <div class="book-index-title">
               <h3><%= book.title %></h3>
-              <%= link_to "削除", book_path(id: book.id), method: :delete %>
+              <%= link_to book_path(id: book.id), method: :delete do %>
+                <i class="fas fa-trash-alt fa_trash"></i>
+              <% end %>
             </div>
             
             <div class="book-index-thumbnail">

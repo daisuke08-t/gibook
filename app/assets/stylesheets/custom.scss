@@ -17,7 +17,7 @@ body {
 
 /*flafh css*/
 .alert {
-  margin-top: 50px;
+  margin-top: 10px;
   position: fixed;
   width: 100%;
   z-index: 10000;
@@ -67,9 +67,19 @@ body {
         a {
           display: block;
           text-decoration: none;
-          color: white;
-          font-size: 15px;
-          font-weight: 400;
+          
+          .bars {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            
+          }
+          
+          .times {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+          }
         }
         
         ul {
@@ -85,12 +95,8 @@ body {
               text-decoration: none;
               color: black;
               font-size: 15px;
-              font-weight: 600;
-              width: 50px;
-              padding: 0px;
-              padding-left: 2px;
-              padding-bottom: 3px;
-              margin-right: 0px;
+              font-weight: 400;
+              
             }
           }
         }
@@ -210,23 +216,38 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
     
-    .mypage-url {
-      display: block;
-      text-decoration: none;
+    .this-user-container {
       display: flex;
-      align-items: center;
-      margin-top: 5px;
-      margin-left: 5px;
-      padding-bottom: 10px;
+      justify-content: space-between;
+      align-items: stretch;
       
-      img {
+      .mypage-url {
         display: block;
-        margin-right: 10px;
-        border-radius: 50%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-left: 5px;
+        padding-bottom: 10px;
+        
+        img {
+          display: block;
+          margin-right: 10px;
+          border-radius: 50%;
+        }
+        
+        
       }
       
+      .this-user-del-url {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 400;
+      }
       
     }
+    
     
     .topic-info {
       width: 100%;
@@ -244,6 +265,18 @@ body {
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        
+        a {
+          display: inline-block;
+          text-decoration: none;
+          color: black;
+          font-size: 20px;
+          font-weight: 400;
+          
+          .fa_heart2 {
+            color: red;
+          }
+        }
         
       }
       
@@ -303,6 +336,9 @@ body {
       
       .comment-del-url {
         float: right;
+        font-size: 15px;
+        font-weight: 400;
+        margin-right: 5px;
       }
     }
   }
@@ -484,8 +520,11 @@ body {
           margin-top: 0;
         }
         a {
+          text-decoration: none;
           display: block;
           margin-left: 20px;
+          font-size: 17px;
+          font-weight: 400;
         }
       }
     }
