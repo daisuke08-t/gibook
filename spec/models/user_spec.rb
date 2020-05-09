@@ -2,97 +2,149 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
+  before do
+    @user = User.new(name: "daisuke", email: "daisuke@example.com", password: "daisuke0000")
+  end
   #名、メール、パスワードがあれば有効
-  it "is valid with name, email, and password" do
-  
-    user = User.new(name: "daisuke", email: "daisuke@example.com", password: "daisuke0000")
+  it "name, email, passwordがあれば有効" do
     
-    expect(user).to be_valid
+    expect(@user).to be_valid
     
   end
-  
-  #名前がない場合は無効
-  it "is invalid without a name" do
+
+  it "nameがなければ無効" do
     
-    user = User.new(name: nil)
+    @user.name = nil
     
-    user.valid?
+    @user.valid?
     
-    expect(user.errors[:name]).to include("can't be blank")
+    expect(@user.errors[:name]).to include("can't be blank")
   end
   
   it "nameの文字列が16文字以上は無効" do
+    @user.name = "a" * 16
+    @user.valid?
     
-    user = User.new
-    user.name = "a" * 16
-    user.valid?
-    
-    expect(user.errors[:name]).to include("is too long (maximum is 15 characters)")
+    expect(@user.errors[:name]).to include("is too long (maximum is 15 characters)")
   end
   
   it "emailが空の場合は無効" do
     
-    user = User.new(email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("can't be blank") 
+    @user.email = nil
+    @user.valid?
+    expect(@user.errors[:email]).to include("can't be blank") 
   end
   
   #重複したメールアドレスなら無効
-  it "is invalid with a duplicate email adress" do
+  it "重複したメールアドレスなら無効" do
     
     User.create(name: "taniguchi", email: "daisuke@example.com", password: "daisuke0000")
     
-    user = User.new(name: "daisuke", email: "daisuke@example.com", password: "daisuke0000")
-    
-    user.valid?
-    
-    expect(user.errors[:email]).to include("has already been taken")
+    @user.valid?
+    expect(@user.errors[:email]).to include("has already been taken")
   end
   
-  #it "有効なメールフォーマットである" do
+  describe "emailのフォーマット" do
     
-   # user = User.new
+    context "有効なメールフォーマットの時" do
+      
+      addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+      
+      it "有効" do
+        addresses.each do |adress|
+         @user.email = adress
+          expect(@user).to be_valid
+        end
+      end
+    end
     
-    #addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    context "無効なメールフォーマットの時" do
+      
+      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com]
+      
+      it "無効" do
+        invalid_addresses.each do |adress|
+         @user.email = adress
+         expect(@user).to be_invalid
+        end
+      end
+    end
     
-    #addresses.each do |adress|
-     # user.email = adress
-      #expect(user.email).to be_valid
-    #end
-  #end
-  
-  #it "無効なメールフォーマットである" do
-    
-   # user = User.new
-    
-    #invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com]
-    
-    #invalid_addresses.each do |adress|
-     # user.email = adress
-      #expect(user.email).to be_invalid
-    #end
-  #end
+  end
   
   
   it "passwordが空の場合は無効" do
     
-    user = User.new(password: nil)
-    user.valid?
-    expect(user.errors[:password]).to include("can't be blank")
+    @user.password = nil
+    @user.valid?
+    expect(@user.errors[:password]).to include("can't be blank")
   end
   
-  it "passwordの文字列が7文字以下33文字以上は無効" do
+  describe "passwordの長さ" do
     
-    user = User.new
-    
-    if user.password = user.password_confirmation = "a" * 7
-      user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 8 characters)")
+    context "passwordの文字列が８文字の時" do
+      
+      it "有効" do
+        @user.password = @user.password_confirmation = "a" * 4 + "0" * 4
+        
+        expect(@user).to be_valid
+      end
     end
     
-    if user.password = user.password_confirmation = "a" * 33
-      user.valid?
-      expect(user.errors[:password]).to include("is too long (maximum is 32 characters)")
+    context "passwordの文字列が32文字は有効" do
+      
+      it "有効" do
+        @user.password = @user.password_confirmation = "a" * 16 + "0" * 16
+        
+        expect(@user).to be_valid
+      end
+    end
+    
+    context "passwordの文字列が７文字以下の時は無効" do
+      
+      it "無効" do
+        @user.password = @user.password_confirmation = "a" * 7
+        @user.valid?
+        
+        expect(@user.errors[:password]).to include("is too short (minimum is 8 characters)")
+      end
+    end
+    
+    context "passwordが３３文字以上のときは無効" do
+      
+      it "無効" do
+        @user.password = @user.password_confirmation = "a" * 33
+        @user.valid?
+        
+        expect(@user.errors[:password]).to include("is too long (maximum is 32 characters)")
+      end
+    end
+  end
+  
+  describe "passwordのフォーマット" do
+    
+    context "有効なフォーマット（半角英数字を１文字以上使用）の時" do
+      
+      passwords = ["aaa00000", "0000aaaaaa"]
+      
+      it "有効" do
+        passwords.each do |password|
+          @user.password = @user.password_confirmation = password
+          expect(@user).to be_valid
+        end
+      end
+    end
+    
+    context "無効なフォーマットの時" do
+      
+      passwords = ["aaaaaaaa", "00000000"]
+      
+      it "無効" do
+        passwords.each do |password|
+          @user.password = @user.password_confirmation = password
+          expect(@user).to be_invalid
+        end
+      end
     end
   end
   
