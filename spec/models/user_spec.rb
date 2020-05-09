@@ -3,9 +3,17 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   
   before do
-    @user = User.new(name: "daisuke", email: "daisuke@example.com", password: "daisuke0000")
+    @user = FactoryBot.build(:user)
   end
-  #名、メール、パスワードがあれば有効
+  
+  
+  it "有効なファクトリを持つこと" do
+    
+    expect(FactoryBot.build(:user)).to be_valid
+    
+  end
+  
+  
   it "name, email, passwordがあれば有効" do
     
     expect(@user).to be_valid
@@ -35,13 +43,14 @@ RSpec.describe User, type: :model do
     expect(@user.errors[:email]).to include("can't be blank") 
   end
   
-  #重複したメールアドレスなら無効
+  
   it "重複したメールアドレスなら無効" do
     
-    User.create(name: "taniguchi", email: "daisuke@example.com", password: "daisuke0000")
+    
+    FactoryBot.create(:user, email: "tester7@example.com")
     
     @user.valid?
-    expect(@user.errors[:email]).to include("has already been taken")
+    expect(@user).to be_invalid
   end
   
   describe "emailのフォーマット" do
