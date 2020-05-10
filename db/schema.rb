@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_111943) do
+ActiveRecord::Schema.define(version: 2020_05_10_141941) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_111943) do
     t.string "icon"
     t.text "content"
     t.string "remember_digest"
+    t.boolean "admin", default: false
   end
 
 end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :log_in_user, only: [:edit, :update, :following, :followers]
+  before_action :log_in_user, only: [:edit, :update, :following, :followers, :destroy]
   before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy]
   
   def new
     @user = User.new
@@ -52,10 +53,19 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
   
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to current_user, success: 'ユーザーを削除しました'
+  end
+  
   private
   
     def user_params
       params.require(:user).permit(:name, :email, :icon, :content, :password, :password_confirmation)
+    end
+    
+    def admin_user
+      redirect_to topics_path unless current_user.admin?
     end
   
 end

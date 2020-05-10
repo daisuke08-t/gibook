@@ -10,12 +10,12 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates :password, presence: true, length: { in: 8..32 }, format: { with: VALID_PASSWORD_REGEX }, allow_nil: true
   
-  has_many :topics
+  has_many :topics, dependent: :destroy
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_topics, through: :favorites, source: 'topic'
   
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :comment_topics, through: :comments, source: 'topic'
   
   
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_follows, source: :followed
   has_many :followers, through: :passive_follows, source: :follower
   
-  has_many :books
+  has_many :books, dependent: :destroy
   
   mount_uploader :icon, ImageUploader
   

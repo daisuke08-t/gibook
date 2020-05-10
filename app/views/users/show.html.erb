@@ -13,6 +13,11 @@
               <% end %>
             <% else %>
               <%= image_tag @user.icon.url, size: "80x80" %>
+              <% if current_user.admin? && !current_user?(@user) %>
+                <%= link_to @user, method: :delete, data: { confirm: "You sure?" } do %>
+                  <p>管理者によるユーザーの削除</p>
+                <% end %>
+              <% end %>
             <% end %>
           </div>
           
