@@ -12,6 +12,8 @@ FactoryBot.define do
     content nil
     
     remember_digest nil
+    
+    admin false
   end
   
 end

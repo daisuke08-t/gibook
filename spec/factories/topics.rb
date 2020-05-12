@@ -14,5 +14,11 @@ FactoryBot.define do
     description "test"
     
     association :user
+    
+    #無効な属性
+    trait :invalid do
+      title nil
+    end
+    
   end
 end

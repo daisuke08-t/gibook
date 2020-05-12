@@ -48,13 +48,28 @@ RSpec.describe TopicsController, type: :controller do
         @user = FactoryBot.create(:user)
       end
       
-      it "topicを投稿できる" do
+      context "有効な属性の時" do
         
-        topic_params = FactoryBot.attributes_for(:topic)
-        log_in @user
-        
-        expect { post :create, params: {topic: topic_params}}.to change(@user.topics, :count).by(1)
+        it "topicを投稿できる" do
+          
+          topic_params = FactoryBot.attributes_for(:topic)
+          log_in @user
+          
+          expect { post :create, params: {topic: topic_params}}.to change(@user.topics, :count).by(1)
+        end
       end
+      
+      context "無効な属性の時" do
+        
+        it "topicを投稿できない" do
+          
+          topic_params = FactoryBot.attributes_for(:topic, :invalid)
+          log_in @user
+          
+          expect { post :create, params: {topic: topic_params}}.to_not change(@user.topics, :count)
+        end
+      end
+      
     end
     
     context "ログイン済みでないユーザーの時" do
