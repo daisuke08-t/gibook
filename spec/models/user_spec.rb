@@ -47,10 +47,11 @@ RSpec.describe User, type: :model do
   it "重複したメールアドレスなら無効" do
     
     
-    FactoryBot.create(:user, email: "tester7@example.com")
+    @user2 = FactoryBot.create(:user, email: "deplicate_test@example.com")
+    @user3 = FactoryBot.build(:user, email: "deplicate_test@example.com")
     
-    @user.valid?
-    expect(@user).to be_invalid
+    @user3.valid?
+    expect(@user3).to be_invalid
   end
   
   describe "emailのフォーマット" do
