@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :log_in_user, only: [:index, :new, :create, :destroy]
   
   def index
     @topics = Topic.all

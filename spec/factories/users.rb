@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user, aliases: [:owner] do
+  factory :user, aliases: [:topics] do
     
     name "tester"
     
