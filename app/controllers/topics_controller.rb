@@ -2,13 +2,17 @@ class TopicsController < ApplicationController
   before_action :log_in_user, only: [:index, :new, :create, :destroy]
   
   def index
-    @topics = Topic.all
+    @topics = Topic.paginate(page: params[:page], per_page: 10)
     @book = Book.new
   end
   
   
   def new
-    @topic = Topic.new
+    #unless
+      @topic = Topic.new
+    #else
+     # redirect_to topics_path, danger: 'Search booksより書籍のタイトルを検索して下さい'
+    #end
   end
   
   def create 

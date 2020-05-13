@@ -3,6 +3,8 @@
     <div class="container">
       <div class="row">
         <h1 class="text-center">Time Line</h1>
+        
+        <%= will_paginate class: 'text-center' %>
         <% @topics.each do |topic| %>
           <div class="topic-index-container">
             <div class="this-user-container">
@@ -91,6 +93,8 @@
             
           </div>
         <% end %>
+        <%= will_paginate class: 'text-center' %>
+        
       </div>
     </div>
   </div>

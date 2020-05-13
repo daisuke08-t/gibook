@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   
   def this_user_topics
     @user = User.find(params[:id])
+    @topics = @user.topics.paginate(page: params[:page], per_page: 10)
     @book = Book.new
   end
   
@@ -46,12 +47,12 @@ class UsersController < ApplicationController
   
   def following
     @user = User.find(params[:id])
-    @users = @user.following
+    @users = @user.following.paginate(page: params[:page], per_page: 20)
   end
   
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followers.paginate(page: params[:page], per_page: 20)
   end
   
   def destroy

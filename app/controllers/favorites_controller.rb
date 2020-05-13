@@ -1,10 +1,10 @@
 class FavoritesController < ApplicationController
+  before_action :log_in_user
   
   def index
     @user = User.find_by(id: params[:user_id])
-    @favorites = Favorite.where(user_id: params[:user_id])
+    @favorites = @user.favorites.paginate(page: params[:page], per_page: 10)
     @book = Book.new
-    #binding.pry
   end
   
   def create

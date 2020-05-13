@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
+  before_action :log_in_user
   
   def index
-    @books = current_user.books
+    @books = current_user.books.paginate(page: params[:page], per_page: 10)
     @topic = Topic.new
   end
   

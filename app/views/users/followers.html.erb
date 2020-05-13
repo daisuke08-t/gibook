@@ -3,6 +3,7 @@
     <div class-"row">
       <h1 class="text-center">Follower</h1>
       <% if @users.any? %>
+        <%= will_paginate @users, class: 'text-center' %>
         <% @users.each do |user| %>
           <div class="user-following-container">
           
@@ -13,6 +14,7 @@
             
           </div>
         <% end %>
+         <%= will_paginate @users, class: 'text-center' %>
         
       <% else %>
         <p class="text-center">現在フォローされているユーザーはいません</p>

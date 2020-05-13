@@ -2,6 +2,8 @@
     <div class="container">
       <div class="row">
         <h2 class="text-center"><%= @user.name %>のお気に入り</h2>
+        
+        <%= will_paginate @favorites, class: 'text-center' %>
         <% @favorites.each do |f| %>
           <div class="topic-index-container">
             <div class="this-user-container">
@@ -90,6 +92,8 @@
             
           </div>
         <% end %>
+        <%= will_paginate @favorites, class: 'text-center' %>
+        
       </div>
     </div>
   </div>

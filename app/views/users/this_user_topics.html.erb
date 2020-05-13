@@ -4,7 +4,9 @@
       <div class="row">
         <h1 class="text-center"><%= @user.name %>の投稿</h1>
         <% if @user.topics.any? %>
-          <% @user.topics.each do |topic| %>
+        
+          <%= will_paginate @topics, class: 'text-center' %>
+          <% @topics.each do |topic| %>
             <div class="topic-index-container">
               <div class="this-user-container">
                 
@@ -97,6 +99,8 @@
             
             </div>
           <% end %>
+          <%= will_paginate @topics, class: 'text-center' %>
+          
         <% else %>
           <p class="text-center">投稿をまだ行っていません</p>
         <% end %>

@@ -3,6 +3,8 @@
     <div class="row">
       <h2 class="text-center">My Books</h2>
       <div class="book-container">
+        
+        <%= will_paginate @books, class: 'text-center' %>
         <% @books.each do |book| %>
         
           <div class="book-container-info">
@@ -53,6 +55,8 @@
           </div>
         
         <% end %>
+        <%= will_paginate @books, class: 'text-center' %>
+        
       </div>
     </div>
   </div>

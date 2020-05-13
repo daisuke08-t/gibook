@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :log_in_user
   
   def new
     @comment = Comment.new
