@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   
   def index
     @books = current_user.books
+    @topic = Topic.new
   end
   
   def new

@@ -31,6 +31,25 @@
               <p><%= book.description %></p>
             </div>
             
+            <%= form_for @topic, url: new_topic_path, method: :get do |f| %>
+            
+              <%= f.hidden_field :title, value: book.title, class: 'js-title' %>
+              
+              <%= f.hidden_field :author, value: book.author, class: 'js-author' %>
+              
+              
+              <%= f.hidden_field :published, value: book.published, class: 'js-published' %>
+              
+              
+              <%= f.hidden_field :thumbnail, value: book.thumbnail, class: 'js-thumbnail' %>
+              
+              
+              <%= f.hidden_field :description, value: book.description, class: 'js-description' %>
+              
+              
+              <%= f.submit "書籍を紹介", class: 'btn-block btn-black btn' %>
+            <% end %>
+            
           </div>
         
         <% end %>

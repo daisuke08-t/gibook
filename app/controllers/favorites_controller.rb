@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     @favorites = Favorite.where(user_id: params[:user_id])
+    @book = Book.new
     #binding.pry
   end
   

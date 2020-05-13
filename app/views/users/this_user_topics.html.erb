@@ -46,6 +46,25 @@
                       <% end %>
                     </div>
                   <% end %>
+                  
+                  <%= form_for @book do |f| %>
+                    
+                    <%= f.hidden_field :title, value: topic.title, class: 'js-title' %>
+                    
+                    <%= f.hidden_field :author, value: topic.author, class: 'js-author' %>
+                    
+                    
+                    <%= f.hidden_field :published, value: topic.published, class: 'js-published' %>
+                    
+                    
+                    <%= f.hidden_field :thumbnail, value: topic.thumbnail, class: 'js-thumbnail' %>
+                    
+                    
+                    <%= f.hidden_field :description, value: topic.description, class: 'js-description' %>
+                    
+                    
+                    <%= f.submit "My Books", class: 'my_book_submit' %>
+                  <% end %>
                 </div>
               
                 <div class="topic-content-info">

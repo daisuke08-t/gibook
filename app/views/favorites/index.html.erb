@@ -36,6 +36,26 @@
                         <i class="fas fa-heart fa_heart2"></i>
                       <% end %>
                     <% end %>
+                    
+                    <%= form_for @book do |form| %>
+                    
+                      <%= form.hidden_field :title, value: f.topic.title, class: 'js-title' %>
+                      
+                      <%= form.hidden_field :author, value: f.topic.author, class: 'js-author' %>
+                      
+                      
+                      <%= form.hidden_field :published, value: f.topic.published, class: 'js-published' %>
+                      
+                      
+                      <%= form.hidden_field :thumbnail, value: f.topic.thumbnail, class: 'js-thumbnail' %>
+                      
+                      
+                      <%= form.hidden_field :description, value: f.topic.description, class: 'js-description' %>
+                      
+                      
+                      <%= form.submit "My Books", class: 'my_book_submit' %>
+                    <% end %>
+                    
                   </div>
                 <% end %>
               </div>

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   
   def this_user_topics
     @user = User.find(params[:id])
+    @book = Book.new
   end
   
   
