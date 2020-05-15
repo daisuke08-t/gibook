@@ -35,7 +35,7 @@ RSpec.describe UsersController, type: :controller do
     context "ログインしていないユーザーの時" do
       
       it "ログイン画面にリダイレクトされる" do
-        get :show, params: {id: @user.id}
+       get :show, params: {id: @user.id}
         expect(response).to redirect_to login_url
       end
     end
@@ -78,7 +78,7 @@ RSpec.describe UsersController, type: :controller do
         expect(@other_user.reload.name).to eq "tester2"
       end
       
-      it "root_urlにリダイレクトされる" do
+      it "topics_pathにリダイレクトされる" do
         
         user_params = FactoryBot.attributes_for(:user, name: "tester_update")
         
@@ -86,7 +86,7 @@ RSpec.describe UsersController, type: :controller do
         
         patch :update, params: {id: @other_user.id, user: user_params}
         
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to topics_path
       end
     end
     

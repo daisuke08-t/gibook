@@ -63,4 +63,5 @@ RSpec.configure do |config|
   config.include SessionsHelper
   config.include ApplicationHelper
   config.include LoginMacros
+  config.include RequestHelper, type: :request
 end
