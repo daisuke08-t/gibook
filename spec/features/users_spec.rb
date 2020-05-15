@@ -3,10 +3,8 @@ require 'rails_helper'
 RSpec.feature "Users", type: :feature do
   
   describe "アカウント登録機能" do
-    
-    before do
-      @user = FactoryBot.build(:user)
-    end
+  
+      let(:user) { FactoryBot.build(:user) }
     
     context "有効な属性でアカウント登録" do
       
@@ -16,13 +14,13 @@ RSpec.feature "Users", type: :feature do
         
         click_link "sign up"
         
-        fill_in "Name", with: @user.name
+        fill_in "Name", with: user.name
         
-        fill_in "Email", with: @user.email
+        fill_in "Email", with: user.email
         
-        fill_in "Password", with: @user.password
+        fill_in "Password", with: user.password
         
-        fill_in "Password confirmation", with: @user.password
+        fill_in "Password confirmation", with: user.password
         
         click_button "登録"
         
@@ -57,19 +55,22 @@ RSpec.feature "Users", type: :feature do
   
   describe "ログイン、ログアウト機能" do
     
+    let(:user){ FactoryBot.create(:user) }
+    
+    
     context "有効な属性でログインする" do
+      
       
       scenario "ログイン成功" do
         
-        @user = FactoryBot.create(:user)
         
         visit root_path
         
         click_link "log in"
         
-        fill_in "Email", with: @user.email
+        fill_in "Email", with: user.email
         
-        fill_in "Password", with: @user.password
+        fill_in "Password", with: user.password
         
         click_button "ログイン"
         
@@ -79,15 +80,15 @@ RSpec.feature "Users", type: :feature do
     
     context "無効な属性でログインする" do
       
+      
       scenario "ログイン失敗" do
         
-        @user = FactoryBot.create(:user)
         
         visit root_path
         
         click_link "log in"
         
-        fill_in "Email", with: @user.email
+        fill_in "Email", with: user.email
         
         fill_in "Password", with: "000000test"
         
@@ -99,9 +100,8 @@ RSpec.feature "Users", type: :feature do
     
     scenario "ログアウト" do
       
-      @user = FactoryBot.create(:user)
       
-      login(@user)
+      login(user)
       
       click_link "Log out"
       
@@ -111,10 +111,8 @@ RSpec.feature "Users", type: :feature do
   
   describe "ユーザー情報編集機能" do
     
-    before do
-      @user = FactoryBot.create(:user)
-      @other_user = FactoryBot.create(:user)
-    end
+    let(:user) { FactoryBot.create(:user) }
+    let(:other_user) { FactoryBot.create(:user) }
     
     context "有効なユーザーの時" do
       
@@ -122,7 +120,7 @@ RSpec.feature "Users", type: :feature do
         
         scenario "編集成功" do
           
-          login(@user) 
+          login(user) 
           
           visit topics_path
           
@@ -134,13 +132,13 @@ RSpec.feature "Users", type: :feature do
           
           fill_in "Email", with: "edittester@example.com"
           
-          attach_file "Icon", "app/assets/images/icon/test.jpg"
+          #attach_file "Icon", "app/assets/images/icon/test.jpg"  #tmpにファイルが生成されるためコメントアウト
           
           fill_in "Content", with: "はじめまして"
           
           click_button "更新"
           
-          expect(page).to have_current_path "/users/#{@user.id}"
+          expect(page).to have_current_path "/users/#{user.id}"
           expect(page).to have_content "ユーザー情報を更新しました"
           expect(page).to have_content "edittester"
           expect(page).to have_content "はじめまして"
@@ -152,7 +150,7 @@ RSpec.feature "Users", type: :feature do
         
         scenario "編集失敗" do
           
-          login(@user) 
+          login(user) 
           
           visit topics_path
           
@@ -164,13 +162,13 @@ RSpec.feature "Users", type: :feature do
           
           fill_in "Email", with: "edittesterexample.com" #emailが正しくない
           
-          attach_file "Icon", "app/assets/images/icon/test.jpg"
+          #attach_file "Icon", "app/assets/images/icon/test.jpg"  #tmpにファイルが生成されるためコメントアウト
           
           fill_in "Content", with: "はじめまして"
           
           click_button "更新"
           
-          expect(page).to have_current_path "/users/#{@user.id}"
+          expect(page).to have_current_path "/users/#{user.id}"
           expect(page).to have_content "Name can't be blank"
           expect(page).to have_content "Email is invalid"
         end
@@ -181,9 +179,9 @@ RSpec.feature "Users", type: :feature do
       
       scenario "topics_pathにリダイレクトされる" do
         
-        login(@user)
+        login(user)
         
-        visit "/users/#{@other_user.id}/edit"
+        visit "/users/#{other_user.id}/edit"
         
         expect(page).to have_current_path topics_path
       end

@@ -58,6 +58,7 @@ group :development, :test do
   gem 'devise'  
   gem 'rspec-core'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'database_cleaner'
   
   gem 'factory_bot_rails', '~> 4.10.0'
 end
