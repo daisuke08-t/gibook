@@ -37,7 +37,7 @@ gem 'bootstrap-sass'
 
 gem 'carrierwave'
 
-gem 'mini_magick', '4.7.0'
+gem 'mini_magick', '4.9.4'
 gem 'fog', '1.40.0'
 
 gem 'will_paginate'
