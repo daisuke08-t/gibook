@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :log_in_user, only: [:index, :new, :create, :destroy]
+  before_action :error_params, only: [:new]
   
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 10)
@@ -37,6 +38,15 @@ class TopicsController < ApplicationController
     
     def topic_params
       params.require(:topic).permit(:title, :author, :thumbnail, :published, :description, :content)
+    end
+    
+    #params[:topic][:title]がない場合のnewへのアクセスを制限
+    def error_params
+      begin
+        params[:topic][:title]
+      rescue 
+        redirect_to topics_path, danger: 'Search Booksから投稿を行ってください'
+      end
     end
   
 end

@@ -7,7 +7,7 @@ module RequestHelper
     base.after(:each) { Warden.test_reset! }
   end
 
-  def sign_in(resource)
+  def sign_in(user)
     login_as(resource, scope: warden_scope(resource))
   end
 

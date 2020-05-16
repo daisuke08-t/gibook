@@ -55,7 +55,9 @@
                       <%= form.hidden_field :description, value: f.topic.description, class: 'js-description' %>
                       
                       
-                      <%= form.submit "My Books", class: 'my_book_submit' %>
+                      <%= button_tag type: :submit do %>
+                        <i class="fas fa-book"></i>
+                      <% end %>
                     <% end %>
                     
                   </div>

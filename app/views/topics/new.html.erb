@@ -2,8 +2,8 @@
   <div class="topic-new-wrapper">
     <div class="container">
       <div class="row">
+        <h1 class="text-center">Introduction Books</h1>
         <div class="topic-new-container">
-          <h1 class="text-center">Introduction Books</h1>
           
           <%= form_for @topic do |f| %>
             
@@ -33,7 +33,7 @@
               <%= f.text_area :content, class: 'form-control' %>
             </div>
             
-            <%= f.submit "投稿", class: 'btn-block btn-black' %>
+            <%= f.submit "投稿", class: 'btn-block btn-black btn' %>
           <% end %>
         </div>
       </div>

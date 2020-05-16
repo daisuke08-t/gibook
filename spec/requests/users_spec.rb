@@ -29,19 +29,19 @@ RSpec.describe "Users", type: :request do
     
     let(:user) { FactoryBot.create(:user) }
     
-    #context "ログイン済みかつ現在のユーザーの時" do       #コントローラーで代用
+    context "ログイン済みかつ現在のユーザーの時" do       #コントローラーで代用
       
-     # it "ユーザー情報を更新できる" do
+     it "ユーザー情報を更新できる" do
         
-      #  user_params = FactoryBot.attributes_for(:user, name: "tester_update")
+      user_params = FactoryBot.attributes_for(:user, name: "tester_update")
         
-       # sign_in(@user)
+       sign_in(user)
         
-        #expect do
-         # patch user_url @user, params: { user: user_params }
-        #end.to change { User.find(@user.id).name}.from('tester').to('tester_update')
-      #end
-    #end
+        expect do
+         patch user_url user, params: { user: user_params }
+        end.to change { User.find(user.id).name}.from('tester').to('tester_update')
+      end
+    end
     
     context "ログイン済みかつ現在のユーザーでない時" do
       
@@ -58,16 +58,16 @@ RSpec.describe "Users", type: :request do
         expect(other_user.reload.name).to eq "tester2"
       end
       
-      #it "topics_pathにリダイレクトされる" do           #コントローラーで代用
+      it "topics_pathにリダイレクトされる" do           #コントローラーで代用
         
-       # user_params = FactoryBot.attributes_for(:user, name: "tester_update")
+        user_params = FactoryBot.attributes_for(:user, name: "tester_update")
         
-        #sign_in(@user)
+        sign_in(user)
         
-        #patch user_path @other_user, params: { user: user_params }
+        patch user_path other_user, params: { user: user_params }
         
-        #expect(response).to redirect_to topics_path
-      #end
+        expect(response).to redirect_to login_url
+      end
     end
     
     context "ログイン済みでないユーザーの時" do

@@ -29,9 +29,19 @@
         <div class="row">
           <div class="navbar-container">
             
-            <h1 class="navbar-brand">
-              <%= link_to "gibook", root_path %>
-            </h1>
+            <% if logged_in? %>
+            
+              <h1 class="navbar-brand">
+                <%= link_to "gibook", topics_path %>
+              </h1>
+              
+            <% else %>
+            
+              <h1 class="navbar-brand">
+                <%= link_to "gibook", root_path %>
+              </h1>
+              
+            <% end %>
             
             <% if logged_in? %>
               <ul class="nav navbar-nav">
@@ -53,9 +63,6 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="dropdown-item">
                       <%= link_to "Mypage", current_user, class: 'nav-link' %>
-                    </li>
-                    <li class="dropdown-item">
-                      <%= link_to "New Post", new_topic_path, class: 'nav-link' %>
                     </li>
                     <li class="dropdown-item">
                       <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>

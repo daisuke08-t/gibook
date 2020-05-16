@@ -177,12 +177,10 @@ body {
     color: white;
     
     #user_name, #user_email, #user_password, #user_password, #user_password_confirmation {
-      background-color: rgba(0,0,0,0.0);
       border: 2px solid white;
     }
       
       #session_email, #session_password {
-        background-color: rgba(0,0,0,0.0);
         border: 2px solid white;
         
       }
@@ -201,7 +199,7 @@ body {
 }
 
 
-/*topic index, users this_user_topics*/
+/*topic index, users this_user_topics, favorite_index*/
 
 .topic-index-wrapper {
   width: 100%;
@@ -272,9 +270,26 @@ body {
           color: black;
           font-size: 20px;
           font-weight: 400;
+          padding: 2px;
           
           .fa_heart2 {
             color: red;
+          }
+        }
+        
+        #new_book {
+          display: inline-block;
+          
+          button {
+            display: inline-block;
+            padding: 2px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            font-size: 18px;
+            
           }
         }
         
@@ -342,6 +357,28 @@ body {
       }
     }
   }
+}
+
+
+/*topic new*/
+
+.topic-new-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: rgba(226, 249, 238, 0.8);
+  
+  .topic-new-container {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    
+    .btn {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+    }
+  }
+  
 }
 
 
@@ -526,6 +563,16 @@ body {
           font-size: 17px;
           font-weight: 400;
         }
+      }
+      
+      .btn {
+        display: block;
+        color: white;
+        background-color: blue;
+        border: 1px solid white;
+        width: 150px;
+        border-radius: 30px;
+        font-weight: 600;
       }
     }
   }

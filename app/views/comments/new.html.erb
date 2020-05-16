@@ -1,7 +1,7 @@
-<div class="comment-new-wrapper">
+<div class="topic-new-wrapper">
   <div class="container">
     <div class="row">
-      <div class="comment-new-container">
+      <div class="topic-new-container">
         <h1 class="text-center">Comment up</h1>
         
         <%= form_for @comment do |f| %>
@@ -15,7 +15,7 @@
             <%= f.text_area :content, class: 'form-control' %>
           </div>
           
-          <%= f.submit "コメント投稿", class: 'btn-block btn-black' %>
+          <%= f.submit "コメント投稿", class: 'btn-block btn-black btn' %>
         <% end %>
       </div>
     </div>
