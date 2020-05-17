@@ -55,9 +55,9 @@ RSpec.describe UsersController, type: :controller do
         
         log_in @user
         
-        patch :update, params: {id: @user.id, user: user_params}
-        
-        expect(@user.reload.name).to eq "tester_update"
+        expect do
+          patch :update, params: {id: @user.id, user: user_params}
+        end.to change { User.find(@user.id).name}.from('tester').to('tester_update')
       end
     end
     

@@ -11,7 +11,7 @@ RSpec.describe "Users", type: :request do
       it "正常にレスポンスを返す" do
         sign_in(user)
         get user_path user
-        expect(response).to have_http_status "302"
+        expect(response).to have_http_status "200"
       end
     end
     
@@ -66,7 +66,7 @@ RSpec.describe "Users", type: :request do
         
         patch user_path other_user, params: { user: user_params }
         
-        expect(response).to redirect_to login_url
+        expect(response).to redirect_to topics_path
       end
     end
     
