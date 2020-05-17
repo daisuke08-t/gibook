@@ -37,8 +37,10 @@ gem 'bootstrap-sass'
 
 gem 'carrierwave'
 
-gem 'mini_magick', '4.7.0'
+gem 'mini_magick', '>= 4.9.4'
 gem 'fog', '1.40.0'
+
+gem 'dotenv-rails'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'

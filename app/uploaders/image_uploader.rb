@@ -7,9 +7,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
+    storage :file   #default_urlを読み込む
     storage :fog
   else
-    storage :file
+    storage :file   #default_urlを読み込む
+    storage :fog    #default_urlがupdateされたらAWS S3を使用するようになる
   end
 
   
