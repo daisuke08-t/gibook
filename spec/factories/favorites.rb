@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :favorite do
     
-    association :user
+    user_id nil
     
-    association :topic
+    topic_id nil
     
   end
 end
