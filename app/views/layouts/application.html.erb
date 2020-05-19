@@ -51,25 +51,14 @@
                 <li>
                   <%= link_to "Search Books", new_book_path, data: {"turbolinks" => false} %>
                 </li>
-                <div class="dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" >
-                    <div class="bars1">
-                      <i class="fas fa-bars bars"></i>
-                    </div>
-                    <div class="times1">
-                      <i class="fas fa-times times"></i>
-                    </div>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="dropdown-item">
-                      <%= link_to "Mypage", current_user, class: 'nav-link' %>
-                    </li>
-                    <li class="dropdown-item">
-                      <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>
-                    </li>
-                  </ul>
-                </div>
+                <li>
+                   <%= link_to "Mypage", current_user, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>
+                </li>
               </ul>
+              
             <% else %>
               <ul class="nav navbar-nav">
                 <li>
@@ -84,6 +73,7 @@
         </div>
       </div>
     </nav>
+    
     
     <div class="yield-wrapper">
       <%= yield %>
@@ -102,8 +92,10 @@
         
         $('.times1').hide();
         
+        $('#modal-menu').hide();
         
-        $('#navbarDropdown').click(function(){
+        
+        $('#modal').click(function(){
           
           let bars = $(this).find('.bars1');
           let times = $(this).find('.times1');
@@ -114,12 +106,15 @@
             bars.hide();
             
             times.show();
+            $('#modal-menu').slideDown();
+            
             
           } else {
             
             bars.addClass('open');
             bars.show();
             times.hide();
+            $('#modal-menu').slideUp();
             
           }
           

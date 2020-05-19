@@ -11,6 +11,7 @@ body {
 
 
 
+
 .yield-wrapper {
   margin-top: 50px;
 }
@@ -45,6 +46,7 @@ body {
     }
     
     
+    
     ul {
       display: flex;
       align-items: center;
@@ -62,51 +64,13 @@ body {
         }
       }
       
-      div {
-        
-        a {
-          display: block;
-          text-decoration: none;
-          
-          .bars {
-            color: white;
-            font-size: 15px;
-            font-weight: 600;
-            
-          }
-          
-          .times {
-            color: white;
-            font-size: 15px;
-            font-weight: 600;
-          }
-        }
-        
-        ul {
-          display: none;
-          width: 100px;
-          height: auto;
-          padding: 0px;
-          
-          li {
-            width: 100%;
-            a {
-              display: block;
-              text-decoration: none;
-              color: black;
-              font-size: 15px;
-              font-weight: 400;
-              
-            }
-          }
-        }
-      }
-      
       
     }
   }
   
 }
+
+
 
 /*home index*/
 .home-wrapper {
@@ -204,7 +168,6 @@ body {
 .topic-index-wrapper {
   width: 100%;
   height: auto;
-  background-color: rgba(226, 249, 238, 0.8);
   
   .topic-index-container {
     width: 500px;
