@@ -86,42 +86,6 @@
         $(".alert").fadeOut(5000);
         
         
-        //fontawesome navbardropdown open,close
-      
-        $('.bars1').addClass('open');
-        
-        $('.times1').hide();
-        
-        $('#modal-menu').hide();
-        
-        
-        $('#modal').click(function(){
-          
-          let bars = $(this).find('.bars1');
-          let times = $(this).find('.times1');
-          
-          if(bars.hasClass('open')){
-            
-            bars.removeClass('open');
-            bars.hide();
-            
-            times.show();
-            $('#modal-menu').slideDown();
-            
-            
-          } else {
-            
-            bars.addClass('open');
-            bars.show();
-            times.hide();
-            $('#modal-menu').slideUp();
-            
-          }
-          
-          
-        });
-        
-        
       });
       
     </script>

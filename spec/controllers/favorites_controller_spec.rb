@@ -90,14 +90,14 @@ RSpec.describe FavoritesController, type: :controller do
     
     context "ログイン済みの時" do
       
-      skip it "お気に入りを解除できる" do
+      it "お気に入りを解除できる" do
         
         log_in user
         
         expect {delete :destroy, params: {topic_id: topic.id}}.to change(user.favorites, :count).by(-1)
       end
       
-      skip it "topics_pathにリダイレクトされる" do
+      it "topics_pathにリダイレクトされる" do
        
        log_in user
        
