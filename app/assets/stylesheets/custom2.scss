@@ -8,13 +8,38 @@
   
   
   
+  
+  
   .yield-wrapper {
     margin-top: 153px;
 }
 
 .home {
-  margin-top: 109px;
+  
+  .yield-wrapper {
+    margin-top: 109px;
+  }
 }
+
+.sessions {
+  
+  .yield-wrapper {
+    margin-top: 109px;
+  }
+}
+
+/*users_controllerのactionのnewに適用する*/
+.users {
+  
+  .new {
+    
+    .yield-wrapper {
+      margin-top: 109px;
+    }
+    
+  }  
+}
+
 
 /*header css*/
 .navbar-transparent {

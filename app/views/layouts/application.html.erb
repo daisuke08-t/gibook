@@ -74,9 +74,13 @@
       </div>
     </nav>
     
-    
-    <div class="<%= controller.controller_name %> yield-wrapper">
-      <%= yield %>
+    <div class="<%= controller.controller_name %>"> <!--controllerの特定のアクションのyield-wrapperを指定出来る-->
+      <div class="<%= controller.action_name %>">
+        
+      <div class="yield-wrapper">
+        <%= yield %>
+      </div>
+      </div>
     </div>
     
     <script>
