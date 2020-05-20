@@ -12,6 +12,10 @@
     margin-top: 153px;
 }
 
+.home {
+  margin-top: 109px;
+}
+
 /*header css*/
 .navbar-transparent {
   margin-bottom: 0px;
@@ -118,7 +122,7 @@
   
   .users-new-container {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     -webkit-transform: translateY(-50%) translateX(-50%);
@@ -136,6 +140,10 @@
     }
     
     .btn {
+      display: block;
+      background-color: #3388DD;
+      color: white;
+      font-weight: 600;
       width: 120px;
       height: 40px;
       margin: 0 auto;
@@ -286,7 +294,7 @@
     border: 2px solid #D4D4D4;
     border-radius: 20px;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translateY(-40%) translateX(-50%);
     -webkit-transform: translateY(-40%) translateX(-50%);

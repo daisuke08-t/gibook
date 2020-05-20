@@ -479,7 +479,6 @@ body {
 .users-edit-wrapper {
   width: 100%;
   height: 100vh;
-  background-color: rgba(226, 249, 238, 0.8);
   
   .users-new-container {
     color: black;
@@ -489,15 +488,12 @@ body {
       border: 2px solid #D4D4D4;
     }
       
-      .btn {
-        background-color: #D4D4D4;
-        border: 2px solid white;
-        color: black;
-      }
-    
-    a {
+    .btn {
       display: block;
-      text-align: center;
+      background-color: #3388DD;
+      color: white;
+      font-weight: 600;
+      border: 2px solid white;
     }
   }
 }
