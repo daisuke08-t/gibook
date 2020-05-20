@@ -86,7 +86,6 @@ RSpec.describe FavoritesController, type: :controller do
     let(:user) {FactoryBot.create(:user)}
     let(:other_user) {FactoryBot.create(:user)}
     let(:topic) {FactoryBot.create(:topic, user_id: other_user.id)}
-    let(:favorite) {FactoryBot.create(:favorite, user_id: user.id, topic_id: topic.id)}
     
     context "ログイン済みの時" do
       
@@ -94,6 +93,7 @@ RSpec.describe FavoritesController, type: :controller do
         
         log_in user
         
+        post :create, params: {topic_id: topic.id}
         expect {delete :destroy, params: {topic_id: topic.id}}.to change(user.favorites, :count).by(-1)
       end
       
@@ -101,6 +101,7 @@ RSpec.describe FavoritesController, type: :controller do
        
        log_in user
        
+       post :create, params: {topic_id: topic.id}
        delete :destroy, params: {topic_id: topic.id} 
        
        expect(response).to redirect_to topics_path

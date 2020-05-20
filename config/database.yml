@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: gibook_production
-  username: gibook
-  password: <%= ENV['GIBOOK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  
+  #database: gibook_production
+  #username: gibook
+  #password: <%= ENV['GIBOOK_DATABASE_PASSWORD'] %>

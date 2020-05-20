@@ -9,7 +9,7 @@ RSpec.describe "Users", type: :request do
     context "ログイン済みのユーザーの時" do
       
       it "正常にレスポンスを返す" do
-        sign_in(user)
+        log_in(user)
         get user_path user
         expect(response).to have_http_status "200"
       end
@@ -35,7 +35,7 @@ RSpec.describe "Users", type: :request do
         
       user_params = FactoryBot.attributes_for(:user, name: "tester_update")
         
-       sign_in(user)
+       log_in(user)
         
         expect do
          patch user_url user, params: { user: user_params }
@@ -51,7 +51,7 @@ RSpec.describe "Users", type: :request do
       it "自身以外のユーザー情報を更新できない" do
         
         
-        sign_in(user)
+        log_in(user)
         
         patch user_path other_user, params: {user: user_params}
         
@@ -62,7 +62,7 @@ RSpec.describe "Users", type: :request do
         
         user_params = FactoryBot.attributes_for(:user, name: "tester_update")
         
-        sign_in(user)
+        log_in(user)
         
         patch user_path other_user, params: { user: user_params }
         
