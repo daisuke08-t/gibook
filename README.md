@@ -2,7 +2,7 @@
 
 The gibook is the application that can manage books and introduce books. 
 
-![gibookhome](images/gibookhome.png "gibook")
+![gibookhome](https://user-images.githubusercontent.com/62994067/82569799-af45d380-9bbb-11ea-884e-ea16377f9599.png)
 
 # Features
 If a book to read next is not found, you can search interested book on gibook.
