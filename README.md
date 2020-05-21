@@ -2,13 +2,16 @@
 
 The gibook is the application that can manage books and introduce books. 
 
+![gibookhome](images/gibookhome.png "gibook")
+
 # Features
 If a book to read next is not found, you can search interested book on gibook.
 If you have many books, you can manage there in one place.
 
 If you have your recommend books, you can introduce the book tovarious people.
 
-### Then, it may change the life of somebody!! ### Well! Let's use gibook!!
+### Then, it may change the life of somebody!! 
+### Well! Let's use gibook!!
 
 
 # Use technique
