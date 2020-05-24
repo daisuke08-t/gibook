@@ -2,13 +2,21 @@
 
 The gibook is the application that can manage books and introduce books. 
 
-![gibookhome](https://user-images.githubusercontent.com/62994067/82569799-af45d380-9bbb-11ea-884e-ea16377f9599.png)
+![gibookhome2](https://user-images.githubusercontent.com/62994067/82750356-94a57180-9dea-11ea-9901-81490c588660.png)
+
 
 # Features
 If a book to read next is not found, you can search interested book on gibook.
 If you have many books, you can manage there in one place.
 
+![searchbooks](https://user-images.githubusercontent.com/62994067/82750375-b56dc700-9dea-11ea-99ea-5344a3095112.png)
+
+![my_books](https://user-images.githubusercontent.com/62994067/82750391-cb7b8780-9dea-11ea-8247-da7d43dce27f.png)
+
+
 If you have your recommend books, you can introduce the book tovarious people.
+
+![time_line](https://user-images.githubusercontent.com/62994067/82750408-e4843880-9dea-11ea-8186-3fbfee2fc385.png)
 
 ### Then, it may change the life of somebody!! 
 ### Well! Let's use gibook!!
@@ -29,6 +37,7 @@ If you have your recommend books, you can introduce the book tovarious people.
 
 ### OTHER:
 * strage: AWS S3
+* API: Google Books API
 
 
 # Author
