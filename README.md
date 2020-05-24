@@ -9,14 +9,12 @@ The gibook is the application that can manage books and introduce books.
 If a book to read next is not found, you can search interested book on gibook.
 If you have many books, you can manage there in one place.
 
-![searchbooks](https://user-images.githubusercontent.com/62994067/82750375-b56dc700-9dea-11ea-99ea-5344a3095112.png)
-
-![my_books](https://user-images.githubusercontent.com/62994067/82750391-cb7b8780-9dea-11ea-8247-da7d43dce27f.png)
+<img src="https://user-images.githubusercontent.com/62994067/82750375-b56dc700-9dea-11ea-99ea-5344a3095112.png" width="340px" height="400px">            <img src="https://user-images.githubusercontent.com/62994067/82750391-cb7b8780-9dea-11ea-8247-da7d43dce27f.png" width="340px" height="400px">
 
 
 If you have your recommend books, you can introduce the book tovarious people.
 
-![time_line](https://user-images.githubusercontent.com/62994067/82750408-e4843880-9dea-11ea-8186-3fbfee2fc385.png)
+<img src="https://user-images.githubusercontent.com/62994067/82750408-e4843880-9dea-11ea-8186-3fbfee2fc385.png" width="340px" height="400px">
 
 ### Then, it may change the life of somebody!! 
 ### Well! Let's use gibook!!
