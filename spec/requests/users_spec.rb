@@ -2,6 +2,18 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
   
+  describe "new" do
+    
+    it "正常にレスポンスを返す" do
+      get new_user_path
+      expect(response).to be_success
+    end
+    
+    it "200レスポンスを返す" do
+      get new_user_path
+      expect(response).to have_http_status "200"
+    end
+  end
   
   describe "show" do
     
