@@ -55,72 +55,94 @@
         
       }else {
         
-        book1.addClass('open');
-        
-        if(book1.hasClass('open')){
-          book1.show();
+        if(data.items[0]){
+          
+          book1.addClass('open');
+          
+          if(book1.hasClass('open')){
+            book1.show();
+          }
+          
+          $('#booktitle').text(data.items[0].volumeInfo.title);
+          $('.js-title').val(data.items[0].volumeInfo.title);
+          
+          $('#bookauthor').text(data.items[0].volumeInfo.authors);
+          $('.js-author').val(data.items[0].volumeInfo.authors);
+          
+          $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
+          $('.js-published').val(data.items[0].volumeInfo.publishedDate);
+          
+          $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
+          $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+          
+          $('#bookdescription').text(data.items[0].volumeInfo.description);
+          $('.js-description').val(data.items[0].volumeInfo.description);
         }
         
-        $('#booktitle').text(data.items[0].volumeInfo.title);
-        $('.js-title').val(data.items[0].volumeInfo.title);
-        
-        $('#bookauthor').text(data.items[0].volumeInfo.authors);
-        $('.js-author').val(data.items[0].volumeInfo.authors);
-        
-        $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
-        $('.js-published').val(data.items[0].volumeInfo.publishedDate);
-        
-        $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
-        $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
-        
-        $('#bookdescription').text(data.items[0].volumeInfo.description);
-        $('.js-description').val(data.items[0].volumeInfo.description);
         
         
         
-        book2.addClass('open2');
         
-        if(book2.hasClass('open2')){
-          book2.show();
+        if(data.items[1]) {
+          
+          book2.addClass('open2');
+          
+          if(book2.hasClass('open2')){
+            book2.show();
+          }
+          
+          $('#booktitle2').text(data.items[1].volumeInfo.title);
+          $('.js-title2').val(data.items[1].volumeInfo.title);
+          
+          $('#bookauthor2').text(data.items[1].volumeInfo.authors);
+          $('.js-author2').val(data.items[1].volumeInfo.authors);
+          
+          $('#publisheddate2').text(data.items[1].volumeInfo.publishedDate);
+          $('.js-published2').val(data.items[1].volumeInfo.publishedDate);
+          
+          $('#bookthumbnail2').html('<img src=\"' + data.items[1].volumeInfo.imageLinks.smallThumbnail + '\" />');
+          $('.js-thumbnail2').val(data.items[1].volumeInfo.imageLinks.smallThumbnail);
+          
+          $('#bookdescription2').text(data.items[1].volumeInfo.description);
+          $('.js-description2').val(data.items[1].volumeInfo.description);
         }
         
-        $('#booktitle2').text(data.items[1].volumeInfo.title);
-        $('.js-title2').val(data.items[1].volumeInfo.title);
-        
-        $('#bookauthor2').text(data.items[1].volumeInfo.authors);
-        $('.js-author2').val(data.items[1].volumeInfo.authors);
-        
-        $('#publisheddate2').text(data.items[1].volumeInfo.publishedDate);
-        $('.js-published2').val(data.items[1].volumeInfo.publishedDate);
-        
-        $('#bookthumbnail2').html('<img src=\"' + data.items[1].volumeInfo.imageLinks.smallThumbnail + '\" />');
-        $('.js-thumbnail2').val(data.items[1].volumeInfo.imageLinks.smallThumbnail);
-        
-        $('#bookdescription2').text(data.items[1].volumeInfo.description);
-        $('.js-description2').val(data.items[1].volumeInfo.description);
         
         
         
-        book3.addClass('open3');
         
-        if(book3.hasClass('open3')){
-          book3.show();
+        if(data.items[2]){
+          
+          book3.addClass('open3');
+          
+          if(book3.hasClass('open3')){
+            book3.show();
+          }
+          
+          $('#booktitle3').text(data.items[2].volumeInfo.title);
+          $('.js-title3').val(data.items[2].volumeInfo.title);
+          
+          $('#bookauthor3').text(data.items[2].volumeInfo.authors);
+          $('.js-author3').val(data.items[2].volumeInfo.authors);
+          
+          $('#publisheddate3').text(data.items[2].volumeInfo.publishedDate);
+          $('.js-published3').val(data.items[2].volumeInfo.publishedDate);
+          
+          $('#bookthumbnail3').html('<img src=\"' + data.items[2].volumeInfo.imageLinks.smallThumbnail + '\" />');
+          $('.js-thumbnail3').val(data.items[2].volumeInfo.imageLinks.smallThumbnail);
+          
+          $('#bookdescription3').text(data.items[2].volumeInfo.description);
+          $('.js-description3').val(data.items[2].volumeInfo.description);
         }
         
-        $('#booktitle3').text(data.items[2].volumeInfo.title);
-        $('.js-title3').val(data.items[2].volumeInfo.title);
         
-        $('#bookauthor3').text(data.items[2].volumeInfo.authors);
-        $('.js-author3').val(data.items[2].volumeInfo.authors);
         
-        $('#publisheddate3').text(data.items[2].volumeInfo.publishedDate);
-        $('.js-published3').val(data.items[2].volumeInfo.publishedDate);
         
-        $('#bookthumbnail3').html('<img src=\"' + data.items[2].volumeInfo.imageLinks.smallThumbnail + '\" />');
-        $('.js-thumbnail3').val(data.items[2].volumeInfo.imageLinks.smallThumbnail);
         
-        $('#bookdescription3').text(data.items[2].volumeInfo.description);
-        $('.js-description3').val(data.items[2].volumeInfo.description);
+        
+        
+        
+          
       }
       
     });
