@@ -22,6 +22,9 @@
 
 
 <script>
+$(function(){
+  
+  
   
   let book1 = $('.new-book-container1');
   book1.hide();
@@ -38,6 +41,7 @@
     const url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + intitle;
     
     $.getJSON(url, function(data){
+      
       
       if(!data.totalItems) {
         
@@ -72,11 +76,29 @@
           $('#publisheddate').text(data.items[0].volumeInfo.publishedDate);
           $('.js-published').val(data.items[0].volumeInfo.publishedDate);
           
-          $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
-          $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+          if(data.items[0].volumeInfo.imageLinks){
+            
+            $('#bookthumbnail').html('<img src=\"' + data.items[0].volumeInfo.imageLinks.smallThumbnail + '\" />');
+            $('.js-thumbnail').val(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+            
+          } else {
+            $('#bookthumbnail').text("この書籍のイメージはありません");
+            $('.js-thumbnail').val("");
+            
+          }
           
-          $('#bookdescription').text(data.items[0].volumeInfo.description);
-          $('.js-description').val(data.items[0].volumeInfo.description);
+          if(data.items[0].volumeInfo.description){
+            
+            $('#bookdescription').text(data.items[0].volumeInfo.description);
+            $('.js-description').val(data.items[0].volumeInfo.description);
+            
+          } else {
+            $('#bookdescription').text("この書籍の概要はありません");
+            $('.js-description').val("");
+            
+          }
+        } else {
+          book1.hide();
         }
         
         
@@ -100,11 +122,29 @@
           $('#publisheddate2').text(data.items[1].volumeInfo.publishedDate);
           $('.js-published2').val(data.items[1].volumeInfo.publishedDate);
           
-          $('#bookthumbnail2').html('<img src=\"' + data.items[1].volumeInfo.imageLinks.smallThumbnail + '\" />');
-          $('.js-thumbnail2').val(data.items[1].volumeInfo.imageLinks.smallThumbnail);
+          if(data.items[1].volumeInfo.imageLinks){
+            
+            $('#bookthumbnail2').html('<img src=\"' + data.items[1].volumeInfo.imageLinks.smallThumbnail + '\" />');
+            $('.js-thumbnail2').val(data.items[1].volumeInfo.imageLinks.smallThumbnail);
+            
+          } else {
+            $('#bookthumbnail2').text("この書籍のイメージはありません");
+            $('.js-thumbnail2').val("");
+            
+          }
           
-          $('#bookdescription2').text(data.items[1].volumeInfo.description);
-          $('.js-description2').val(data.items[1].volumeInfo.description);
+          if(data.items[1].volumeInfo.description){
+            
+            $('#bookdescription2').text(data.items[1].volumeInfo.description);
+            $('.js-description2').val(data.items[1].volumeInfo.description);
+            
+          } else {
+            $('#bookdescription2').text("この書籍の概要はありません");
+            $('.js-description2').val("");
+            
+          }
+        } else {
+          book2.hide();
         }
         
         
@@ -128,25 +168,40 @@
           $('#publisheddate3').text(data.items[2].volumeInfo.publishedDate);
           $('.js-published3').val(data.items[2].volumeInfo.publishedDate);
           
-          $('#bookthumbnail3').html('<img src=\"' + data.items[2].volumeInfo.imageLinks.smallThumbnail + '\" />');
-          $('.js-thumbnail3').val(data.items[2].volumeInfo.imageLinks.smallThumbnail);
+          if(data.items[2].volumeInfo.imageLinks){
+            
+            $('#bookthumbnail3').html('<img src=\"' + data.items[2].volumeInfo.imageLinks.smallThumbnail + '\" />');
+            $('.js-thumbnail3').val(data.items[2].volumeInfo.imageLinks.smallThumbnail);
+            
+          } else {
+            $('#bookthumbnail3').text("この書籍のイメージはありません");
+            $('.js-thumbnail3').val("");
+            
+          }
           
-          $('#bookdescription3').text(data.items[2].volumeInfo.description);
-          $('.js-description3').val(data.items[2].volumeInfo.description);
+          
+          if(data.items[2].volumeInfo.description){
+            
+            $('#bookdescription3').text(data.items[2].volumeInfo.description);
+            $('.js-description3').val(data.items[2].volumeInfo.description);
+            
+          } else {
+            
+            $('#bookdescription3').text("この書籍の概要はありません");
+            $('.js-description3').val("");
+          }
+        } else {
+          book3.hide();
         }
-        
-        
-        
-        
-        
-        
-        
-        
-          
       }
       
     });
     
   });
+  
+});
+  
+  
+  
   
 </script>

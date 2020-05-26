@@ -111,8 +111,8 @@ RSpec.describe "Users", type: :request do
   
   describe "destroy" do
     
-    let(:user) {FactoryBot.create :user, admin: true}
-    let(:other_user) { FactoryBot.create :user, admin: false }
+    let!(:user) {FactoryBot.create :user, admin: true}
+    let!(:other_user) { FactoryBot.create :user }
     
     context "admin_userでログインしている時" do
       
@@ -146,7 +146,7 @@ RSpec.describe "Users", type: :request do
         
         
         expect do
-         delete user_url user, params: {id: user.id}
+         delete user_url other_user, params: {id: other_user.id}
        end.to_not change(User, :count)
        
      end
