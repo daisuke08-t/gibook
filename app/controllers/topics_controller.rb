@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :log_in_user, only: [:index, :new, :create, :destroy]
+  before_action :correct_user, only: [:destroy]
   before_action :error_params, only: [:new]
   
   def index
@@ -29,7 +30,7 @@ class TopicsController < ApplicationController
   
   def destroy
     topic = Topic.find_by(id: params[:id], user_id: current_user.id)
-    
+    #binding.pry
     topic.destroy
     redirect_to this_user_topics_user_path(id: current_user.id), danger: '投稿を削除しました'
   end

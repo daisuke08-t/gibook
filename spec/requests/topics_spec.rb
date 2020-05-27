@@ -144,4 +144,71 @@ RSpec.describe "Topics", type: :request do
     end
   end
   
+  describe "destroy" do
+    
+    let!(:user) {FactoryBot.create(:user)}
+    let!(:other_user) {FactoryBot.create(:user)}
+    let!(:topic) {FactoryBot.create(:topic, user_id: user.id)}
+    
+    context "ログイン済みかつ現在のユーザーであるとき" do
+      
+      it "topicを削除できる" do
+        
+        sign_in user
+        
+        expect do
+         delete topic_url topic, params: {id: topic.id}
+       end.to change(Topic, :count).by(-1)
+     end
+     
+     it "this_user_topics_user_pathにリダイレクトされる" do
+       
+       sign_in user
+       
+       delete topic_url topic, params: {id: topic.id}
+       
+       expect(response).to redirect_to this_user_topics_user_path
+     end
+   end
+   
+   context "ログイン済みかつ現在のユーザーでない場合" do
+     
+     it "他人のtopicを削除できない" do
+       
+       sign_in other_user
+       
+       expect do
+         delete topic_url topic, params: {id: topic.id}
+       end.to_not change(Topic, :count)
+     end
+     
+     it "topics_pathにリダイレクトされる" do
+       
+       sign_in other_user
+       
+       delete topic_url topic, params: {id: topic.id}
+       
+       expect(response).to redirect_to topics_path
+     end
+   end
+   
+   context "ログインしていないユーザーの時" do
+     
+     it "topicを削除できない" do
+       
+       expect do
+        delete topic_url topic, params: {id: topic.id}
+       end.to_not change(Topic, :count)
+     end
+     
+     it "ログイン画面にリダイレクトされる" do
+       
+       delete topic_url topic, params: {id: topic.id}
+       
+       expect(response).to redirect_to login_url
+     end
+   end
+   
+   
+  end  
 end
