@@ -84,11 +84,15 @@
                   <p class="comment-content"><%= c.content %></p>
                 </div>
                 
-                <div class="comment-del-url">
-                  <%= link_to comment_delete_path(id: c.id), method: :delete do %>
-                    <i class="fas fa-trash-alt fa_trash"></i>
-                  <% end %>
-                </div>
+                <% if current_user?(c.user) %>
+                
+                  <div class="comment-del-url">
+                    <%= link_to comment_delete_path(id: c.id), method: :delete do %>
+                      <i class="fas fa-trash-alt fa_trash"></i>
+                    <% end %>
+                  </div>
+                  
+                <% end %>
                 
               </div>
             <% end %>
