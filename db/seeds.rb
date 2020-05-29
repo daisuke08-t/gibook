@@ -8,9 +8,9 @@
 
 
 User.create!(name:  "adminuser",
-             email: "example@example.com",
-             password:              "password0000",
-             password_confirmation: "password0000",
+             email: "user_admin_001@example.com",
+             password:              "admin0000",
+             password_confirmation: "admin0000",
              icon: nil, 
              content: nil,
              admin: true)
