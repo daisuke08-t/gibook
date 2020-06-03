@@ -16,8 +16,12 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    log_out if logged_in?
-    redirect_to root_url, info: 'ログアウトしました'
+    if logged_in?
+      log_out
+      redirect_to root_url, info: 'ログアウトしました'
+    else
+      redirect_to login_path, danger: 'ログインして下さい'
+    end
   end
   
   
