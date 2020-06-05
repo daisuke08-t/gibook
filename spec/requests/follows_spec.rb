@@ -25,7 +25,7 @@ RSpec.describe "Follows", type: :request do
         
         post follows_path, params: {followed_id: other_user.id}
         
-        expect(response).to redirect_to user_path
+        expect(response).to redirect_to user_path(other_user)
       end
       
       context "ログインしていないとき" do
@@ -72,7 +72,7 @@ RSpec.describe "Follows", type: :request do
         
         delete follow_path follow, params: {id: other_user.id}
         
-        expect(response).to redirect_to user_path
+        expect(response).to redirect_to user_path(other_user)
       end
     end
     
