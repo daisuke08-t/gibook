@@ -28,10 +28,12 @@ If you have your recommend books, you can introduce the book tovarious people.
 
 ### DATABASE:
 * development: mysql2
-* production: postgre-sql
+* production(AWS): mysql2
+* production(heroku): postgre-sql
 
 ### DEPLOY:
-* heroku
+* AWS: VPC,EC2,unicorn,nginx (http://gibook.org)
+* heroku (https://gibook.herokuapp.com/)
 
 ### OTHER:
 * strage: AWS S3
