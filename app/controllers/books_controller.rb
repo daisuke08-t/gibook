@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :log_in_user
+  before_action :correct_user, only: [:destroy]
   
   def index
     @books = current_user.books.paginate(page: params[:page], per_page: 10)
