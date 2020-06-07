@@ -9,7 +9,7 @@ FactoryBot.define do
     
     published nil
     
-    thumbnail nil
+    thumbnail "http://books.google.com/books/content?id=YnLL1MCtfWcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
     
     description nil
     
