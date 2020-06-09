@@ -70,4 +70,29 @@ RSpec.feature "Topics", type: :feature do
     end
   end
   
+  describe "投稿削除機能" do
+    
+    let!(:user) {FactoryBot.create(:user)}
+    let!(:topic) {FactoryBot.create(:topic, user_id: user.id)}
+    
+    context "ログイン済みユーザーの時" do
+      
+      scenario "投稿を削除できる" do
+        
+        login(user)
+        
+        visit topics_path
+        
+        click_link "Mypage"
+        
+        click_link "testerの投稿"
+        
+        find('.this-user-container > .this-user-del-url').click
+        
+        expect(page).to have_current_path "/users/#{user.id}/this_user_topics"
+        expect(page).to have_content "投稿を削除しました"
+      end
+    end
+  end
+  
 end

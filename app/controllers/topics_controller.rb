@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
   before_action :log_in_user, only: [:index, :new, :create, :destroy]
-  before_action :correct_user, only: [:destroy]
   before_action :error_params, only: [:new]
   
   def index
