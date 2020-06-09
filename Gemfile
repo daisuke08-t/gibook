@@ -88,9 +88,15 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
 end
 
-group :production do
-  gem 'pg'
+#AWS
+group :production, :staging do
+  gem 'unicorn'
 end
+
+#heroku
+#group :production do
+ # gem 'pg'
+#end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

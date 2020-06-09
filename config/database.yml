@@ -47,12 +47,21 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+#AWS
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: gibook_production
+  username: root #ここをrootに変更す
+  password:
+
+#heroku
+#production:
+ # <<: *default
+  #adapter: postgresql
+  #encoding: unicode
+  #pool: 5
   
-  #database: gibook_production
+  database: gibook_production
   #username: gibook
   #password: <%= ENV['GIBOOK_DATABASE_PASSWORD'] %>
