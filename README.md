@@ -32,7 +32,7 @@ If you have your recommend books, you can introduce the book tovarious people.
 * production(heroku): postgre-sql
 
 ### DEPLOY:
-* AWS: VPC,EC2,unicorn,nginx (https://gibook.org),(http://gibook.org)
+* AWS: VPC,EC2,unicorn,nginx (https://gibook.org)
 * heroku (https://gibook.herokuapp.com/)
 
 ### OTHER:
